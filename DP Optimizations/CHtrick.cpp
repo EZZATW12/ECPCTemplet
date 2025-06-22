@@ -1,55 +1,30 @@
-//To query the maximum value of the function for all x in [l, r], query only two points: l, r because the functions are convex.
 struct Line {
-    ll m, b;
-    mutable function<const Line *()> succ;
-
-    bool operator<(const Line &other) const {
-        return m < other.m;
-    }
-
-    bool operator<(const ll &x) const {
-        const Line *s = succ();
-        if (!s)
-            return 0;
-        return b - s->b < (s->m - m) * x;
-    }
+    mutable ll k, m, p;
+    bool operator<(const Line& o) const { return k < o.k; }
+    bool operator<(ll x) const { return p < x; }
 };
 
-// will maintain upper hull for maximum
-struct HullDynamic : public multiset<Line, less<>> {
-    bool bad(iterator y) {
-        auto z = next(y);
-        if (y == begin()) {
-            if (z == end())
-                return 0;
-            return y->m == z->m && y->b <= z->b;
-        }
-        auto x = prev(y);
-        if (z == end())
-            return y->m == x->m && y->b <= x->b;
-        return (ld) (x->b - y->b) * (z->m - y->m) >= (ld) (y->b - z->b) * (y->m - x->m);
+struct HullDynamic : multiset<Line, less<>> {
+    // (for doubles, use inf = 1/.0, div(a,b) = a/b)
+    const ll inf = 2e18;
+    ll div(ll a, ll b) { // floored division
+        return a / b - ((a ^ b) < 0 && a % b); }
+    bool isect(iterator x, iterator y) {
+        if (y == end()) { x->p = inf; return false; }
+        if (x->k == y->k) x->p = x->m > y->m ? inf : -inf;
+        else x->p = div(y->m - x->m, x->k - y->k);
+        return x->p >= y->p;
     }
-
-    void insert_line(ll m, ll b) {
-        // for minimum 
-        //        m *= -1;
-        //        b *= -1;
-        auto y = insert({m, b});
-        y->succ = [=] { return next(y) == end() ? 0 : &*next(y); };
-        if (bad(y)) {
-            erase(y);
-            return;
-        }
-        while (next(y) != end() && bad(next(y)))
-            erase(next(y));
-        while (y != begin() && bad(prev(y)))
-            erase(prev(y));
+    void add(ll k, ll m) {
+        auto z = insert({k, m, 0}), y = z++, x = y;
+        while (isect(y, z)) z = erase(z);
+        if (x != begin() && isect(--x, y)) isect(x, y = erase(y));
+        while ((y = x) != begin() && (--x)->p >= y->p)
+            isect(x, erase(y));
     }
-
     ll query(ll x) {
-
+        assert(!empty());
         auto l = *lower_bound(x);
-//        return -(l.m * x + l.b) for minimum;
-        return l.m * x + l.b;
+        return l.k * x + l.m;
     }
 };

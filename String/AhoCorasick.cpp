@@ -1,84 +1,63 @@
-struct AhoCorasick {
-    int states = 0;
-    vector<int> pi;
-    vector <vector<int>> trie, patterns;
+struct Aho_corasick {
+    struct Node {
+        int link{}, sean{};
+        vector<int> to, aut, ids, g;
 
-    AhoCorasick(int n, int m = 26) {
-        pi = vector<int>(n + 10, -1);
-        patterns = vector < vector < int >> (n + 10);
-        trie = vector < vector < int >> (n + 10, vector<int>(m, -1));
-    }
-
-    AhoCorasick(vector <string> &p, int n, int m = 26) {
-        /*
-         * MAKE SURE THAT THE STRINGS IN P ARE UNIQUE
-         * N is the summation of sizes of p
-         * M is the number of used alphabet
-        */
-
-        pi = vector<int>(n + 10, -1);
-        patterns = vector < vector < int >> (n + 10);
-        trie = vector < vector < int >> (n + 10, vector<int>(m, -1));
-
-        for (int i = 0; i < p.size(); i++)
-            insert(p[i], i);
-        build();
-    }
-
-    void insert(string &s, int idx) {
-        int cur = 0;
-        for (auto &it: s) {
-            if (trie[cur][it - 'a'] == -1)
-                trie[cur][it - 'a'] = ++states;
-            cur = trie[cur][it - 'a'];
+        Node() {
+            aut.assign(26, 0);
+            to.assign(26, -1);
         }
-        patterns[cur].push_back(idx);
+    };
+    vector<Node> trie;
+    vector<long long> ans;
+    Aho_corasick() { trie.emplace_back(); }
+    void insert(const string &ele, const int &id) {
+        int u = 0;
+        for (auto &ch: ele) {
+            if (trie[u].to[ch - 'a'] == -1) {
+                trie[u].to[ch - 'a'] = (int) trie.size();
+                trie.emplace_back();
+            }
+            u = trie[u].to[ch - 'a'];
+        }
+        trie[u].ids.push_back(id);
     }
-
-    int nextState(int trieNode, int nxt) {
-        int cur = trieNode;
-        while (trie[cur][nxt] == -1)
-            cur = pi[cur];
-        return trie[cur][nxt];
-    }
-
-    void build() {
+    void compute_automaton() {
         queue<int> q;
-        for (int i = 0; i < 26; i++) {
-            if (trie[0][i] != -1)
-                pi[trie[0][i]] = 0, q.push(trie[0][i]);
-            else
-                trie[0][i] = 0;
-        }
-
-        while (q.size()) {
-            int cur = q.front();
+        q.push(0);
+        while (!q.empty()) {
+            int u = q.front();
             q.pop();
-            for (int i = 0; i < 26; i++) {
-                if (trie[cur][i] == -1)
+            Node &cur = trie[u];
+            for (int i = 0; i < 26; ++i) {
+                if (!~cur.to[i]) {
+                    cur.aut[i] = trie[cur.link].aut[i];
                     continue;
-                int f = nextState(pi[cur], i);
-                pi[trie[cur][i]] = f;
-                patterns[trie[cur][i]].insert(patterns[trie[cur][i]].end(), patterns[f].begin(), patterns[f].end());
-                q.push(trie[cur][i]);
+                }
+                Node &next = trie[cur.to[i]];
+                next.link = (u == 0 ? 0 : trie[cur.link].aut[i]);
+                cur.aut[i] = cur.to[i];
+                trie[next.link].g.push_back(cur.to[i]);
+                q.push(cur.to[i]);
             }
         }
     }
-
-
-    vector <vector<int>> search(string &s, vector <string> &p, int n) {
-        int cur = 0;
-        vector <vector<int>> ret(n);
-        for (int i = 0; i < s.length(); i++) {
-            cur = nextState(cur, s[i] - 'a');
-            if (cur == 0 || patterns[cur].empty())
-                continue;
-
-            // patterns vector have every pattern that is matched in this node
-            // matched: the last index in the pattern is index i
-            for (auto &it: patterns[cur])
-                ret[it].push_back(i - p[it].length() + 1);
+    void match(const string &text, const int &sz) {
+        compute_automaton();
+        ans.assign(sz, 0);
+        int u = 0;
+        for (auto &ch: text) {
+            u = trie[u].aut[ch - 'a'];
+            trie[u].sean++;
         }
-        return ret;
+        dfs(0);
+    }
+    long long dfs(int u) {
+        long long res = trie[u].sean;
+        for (auto &v: trie[u].g)
+            res += dfs(v);
+        for (auto &id: trie[u].ids)
+            ans[id] = res;
+        return res;
     }
 };
