@@ -1,6 +1,4 @@
-//
-// Created by Ezzat on 6/2/2025.
-//
+
 struct Node {
     ll sum;
 
@@ -33,20 +31,20 @@ struct SegTree {
         return parent.sum = li.sum + ri.sum;
     }
 
-    void set(int idx, ll val, int ni, int li, int ri) {
+    void update(int idx, ll val, int ni, int li, int ri) {
         if (ri - li == 1) {
             Seg_Data[ni].change(val);
             return;
         }
         int mid = (li + ri) >> 1;
         if (idx < mid)
-            set(idx, val, 2 * ni + 1, li, mid);
+            update(idx, val, 2 * ni + 1, li, mid);
         else
-            set(idx, val, 2 * ni + 2, mid, ri);
+            update(idx, val, 2 * ni + 2, mid, ri);
         Seg_Data[ni] = merge(Seg_Data[2 * ni + 1], Seg_Data[2 * ni + 2]);
     }
 
-    void set(int idx, ll val) {
+    void update(int idx, ll val) {
         set(idx, val, 0, 0, tree_sz);
     }
 
@@ -61,7 +59,7 @@ struct SegTree {
         return merge(lnode, rnode);
     }
 
-    ll get(int l, int r) {
+    ll get(int l, int r) {  // note r not included
         return get(l, r, 0, 0, tree_sz).sum;
     }
 };

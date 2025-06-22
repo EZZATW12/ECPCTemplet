@@ -19,7 +19,7 @@ struct Node {
 
 struct SegTreeLazy {
     int tree_sz;
-    vector<Node> Seg_Data;
+    vector <Node> Seg_Data;
 
     SegTreeLazy(int n) {
         tree_sz = 1;
@@ -37,7 +37,7 @@ struct SegTreeLazy {
         if (!Seg_Data[ni].is_lazy or ri - li == 1)return;
         int mid = (li + ri) >> 1;
         Seg_Data[(ni << 1) + 1].change(Seg_Data[ni].lazy, li, mid);
-        Seg_Data[ni * 2 + 2].change(Seg_Data[ni].lazy, mid, ri);
+        Seg_Data[(ni << 1) + 2].change(Seg_Data[ni].lazy, mid, ri);
         Seg_Data[ni].lazy = 0;
         Seg_Data[ni].is_lazy = 0;
     }
@@ -72,7 +72,7 @@ struct SegTreeLazy {
         return merge(lnode, rnode);
     }
 
-    ll query(int l, int r) {
+    ll query(int l, int r) { // note r not included
         return query(l, r, 0, 0, tree_sz).val;
     }
 };
