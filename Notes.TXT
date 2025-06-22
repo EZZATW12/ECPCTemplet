@@ -1,0 +1,2 @@
+Number of diffrent substrings:
+n * (n + 1)/2 - Sum(lcp[i]) for all i [0,n-2]
