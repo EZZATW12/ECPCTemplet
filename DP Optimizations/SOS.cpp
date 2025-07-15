@@ -32,3 +32,4 @@ void backwardRev(vector<int> &dp) {
             if (m & (1 << i))
                 dp[m ^ (1 << i)] -= dp[m];
 }
+
