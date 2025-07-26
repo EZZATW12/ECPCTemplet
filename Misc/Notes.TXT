@@ -1,0 +1,53 @@
+Fi = Fibonacci of i
+F1^2 + F2^2 + ... + Fn^2 = Fn*Fn+1
+F1 + F2 + ... Fn = Fn+2 - 1
+F(x + y) = F(x) * F(y + 1) + F(x - 1) * F(y) --- F[0] = 0, F[1] = 1
+
+Number of labelled rooted forests (n + 1)^(n-1)
+
+Number of labeled trees with given degree sequence with size n
+(n - 2)! / ((d1 - 1)! * (d2 - 1)! * (dn - 1)!)
+
+Number of labeled graphs Gn = 2^(n*(n-1)/2)
+Number of connected labeled graphs
+Cn = Gn - 1/n * Sum(k * nCk * Ck * Gn-k) k = [1,n-1]
+
+Number of labeled graphs with k components
+D[n][k] = Sum(n-1Cs-1 * Cs * D[n-s][k-1]) s = [1,n]
+
+Number of Derangements of size n F(n)
+F(0) = 0
+F(1) = 1
+F(n) = (n-1) * (F(n-2) + F(n-1))
+
+
+
+Problem:
+Given an array of integers of size N, divide it into the minimum number of “strictly increasing subsequences”
+Solution:
+This is a well know problem and the solution is the length of the longest decreasing subsequence.
+
+Misere Nim where The player who removes the last stone loses the game if the piles are equal to 1 then decide with parity otherwise normal nim.
+
+To play nim on a tree rooted at node 1 where you can remove any subtree other than 1:
+int dfs(int u,int par){
+    int XOR = 0;
+    for(auto v:adj[u]){
+        if(v == par)continue;
+        int ret = dfs(v,u);
+        XOR ^= ret + 1;
+    }
+    return XOR;
+}
+
+Number of moves to get back to where you started in a circle with size n and jump with size k is n / gcd(n,k).
+
+a(x, y) = x + y, b(x, y) = x - y.
+Manhattan Distance(x1, y1, x2, y2) = max(abs(a1 - a2), abs(b1 - b2))
+
+In Alien's trick
+if we will take answer when picked >= k : maximize picking
+if we will take answer when picked <= k : minimize picking
+
+
+
