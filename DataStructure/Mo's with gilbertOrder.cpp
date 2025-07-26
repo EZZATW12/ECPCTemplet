@@ -30,7 +30,7 @@ inline bool operator<(const query &a, const query &b) {
     return a.ord < b.ord;
 }
 int main(){
-    
+
     auto add = [&](ll idx) {
 
     };
