@@ -2,7 +2,7 @@
 // Created by Ezzat on 6/22/2025.
 //
 int T, low[N], dis[N], art[N], ids[N], id;
-vector<pair<int, int> > g[N], edges;
+vector <pair<int, int>> g[N], edges;
 vector<int> acy[N];
 bool is_bridge[N], vis[N];
 
@@ -30,6 +30,7 @@ void dfs(int u) {
         }
     }
 }
+
 void BuildTree() {
     for (int i = 1; i <= m; ++i) {
         int u, v;

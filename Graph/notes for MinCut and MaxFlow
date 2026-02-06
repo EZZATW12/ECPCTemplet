@@ -1,0 +1,34 @@
+If your problem is
+maximize profit = gains − costs,
+rewrite it as
+TOTAL − penalties,
+then minimize penalties with min cut.
+
+-------------------------------------
+Standard modeling patterns
+
+   - Choose / Not Choose (Project Selection)
+       - Choosing item i gives profit +p_i
+       - Skipping it loses that profit
+       - S → item_i (capacity = p_i)
+       - Cut edge → item NOT chosen → pay p_i
+       - Don’t cut → item chosen
+
+   - Cost for choosing something
+       - Choosing object j costs c_j
+       - object_j → T (capacity = c_j)
+       - Cut edge → object chosen → pay c_j
+       - Don’t cut → not chosen
+
+   - Dependency (must choose B if choose A)
+       - If A is chosen, B must also be chosen
+       - A → B (capacity = ∞)
+       - Prevents cut where A is chosen but B is not
+
+
+
+   Only capacities	-> Max Flow
+   Gains & costs	-> Min Cut
+   Assignment with profits ->Min-Cost Max-Flow
+   Bipartite matching -> Max Flow
+   Dependencies + profits -> 	Min Cut

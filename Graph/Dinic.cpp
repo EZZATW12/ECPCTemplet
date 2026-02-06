@@ -1,6 +1,8 @@
-#define rep(aa, bb, cc) for(int aa = bb; aa < cc;aa++)
-#define vi vector<int>
-
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int N = 5e3, M = 6e4;
+const int INF = INT_MAX;
 struct Dinic {
     struct Edge {
         int to, rev;
@@ -9,16 +11,16 @@ struct Dinic {
         ll flow() { return max(oc - c, 0LL); } // if you need flows
     };
 
-    vector <vector<Edge>> adj;
-    vi lvl, ptr, q;
+    vector<vector<Edge> > adj;
+    vector<int> lvl, ptr, q;
 
-    Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
+    Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {
+    }
 
     void addEdge(int a, int b, ll c, ll rcap = 0) {
         adj[a].push_back({b, (int) adj[b].size(), c, c});
         adj[b].push_back({a, (int) adj[a].size() - 1, rcap, rcap});
     }
-
     ll dfs(int v, int t, ll f) {
         if (v == t || !f) return f;
         for (int &i = ptr[v]; i < (int) adj[v].size(); i++) {
@@ -35,8 +37,10 @@ struct Dinic {
     ll calc(int s, int t) {
         ll flow = 0;
         q[0] = s;
-        rep(L, 0, 31) do { // 'int L=30' maybe faster for random data
-                lvl = ptr = vi((int) q.size());
+        for (int L = 0; L < 31; ++L) {
+            do {
+                // 'int L=30' maybe faster for random data
+                lvl = ptr = vector<int>((int) q.size());
                 int qi = 0, qe = lvl[s] = 1;
                 while (qi < qe && !lvl[t]) {
                     int v = q[qi++];
@@ -46,6 +50,7 @@ struct Dinic {
                 }
                 while (ll p = dfs(s, t, LLONG_MAX)) flow += p;
             } while (lvl[t]);
+        }
         return flow;
     }
 

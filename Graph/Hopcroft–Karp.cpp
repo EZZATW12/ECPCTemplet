@@ -1,64 +1,77 @@
-struct HopcroftKarp {
-    vector<int> leftMatch, rightMatch, dist, cur;
-    vector<vector<int> > a;
-    int n, m;
+#include <bits/stdc++.h>
 
-    HopcroftKarp() {}
+using namespace std;
+const int N = 205, M = 405;
+const int INF = INT_MAX;
 
-    HopcroftKarp(int n, int m) {
-        this->n = n;
-        this->m = m;
-        a = vector<vector<int> >(n);
-        leftMatch = vector<int>(m, -1);
-        rightMatch = vector<int>(n, -1);
-        dist = vector<int>(n, -1);
-        cur = vector<int>(n, -1);
-    }
+int head[N], to[M], nxt[M], cap[M];
+int vis[N], par[N], flow[N];
+int vid = 0;
+int src, snk;
+int ne, n; // Number of edges, Number of nodes
 
-    void addEdge(int x, int y) {
-        a[x].push_back(y);
-    }
+// u: current node, v: neighbor, e: edge index, c: capacity
+#define edges(u, v, e, c) for(int e = head[u], c, v; ~e && (c = cap[e] , v = to[e] , 1); e = nxt[e])
 
-    int bfs() {
-        int found = 0;
-        queue<int> q;
-        for (int i = 0; i < n; i++)
-            if (rightMatch[i] < 0) dist[i] = 0, q.push(i);
-            else dist[i] = -1;
+void init_graph() {
+    ne = 0;
+    // Note: Ensure 'n' covers all potential node indices (0 to n-1).
+    memset(head, -1, n * sizeof(head[0]));
+}
 
-        while (!q.empty()) {
-            int x = q.front();
-            q.pop();
-            for (int i = 0; i < int(a[x].size()); i++) {
-                int y = a[x][i];
-                if (leftMatch[y] < 0) found = 1;
-                else if (dist[leftMatch[y]] < 0)
-                    dist[leftMatch[y]] = dist[x] + 1, q.push(leftMatch[y]);
-            }
+void add_edge(int u, int v, int c) {
+    to[ne] = v;
+    nxt[ne] = head[u];
+    cap[ne] = c;
+    head[u] = ne++;
+}
+
+void addAugEdge(int u, int v, int forward_cost, int backward_cost = 0) {
+    add_edge(u, v, forward_cost); // Forward edge: index 2*k
+    add_edge(v, u, backward_cost); // Backward edge: index 2*k + 1
+}
+
+// BFS to find an augmenting path from src to snk
+int bfs() {
+    vis[src] = ++vid, par[src] = -1, flow[src] = INF;
+    queue<int> q;
+    q.push(src);
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        edges(u, v, e, c) {
+            if (vis[v] == vid || !c) continue;
+            vis[v] = vid;
+            par[v] = e; // Store the edge index that led here
+            flow[v] = min(flow[u], c);
+
+            if (v == snk)
+                return flow[snk];
+
+            q.push(v);
         }
-
-        return found;
     }
+    return 0;
+}
 
-    int dfs(int x) {
-        for (; cur[x] < int(a[x].size()); cur[x]++) {
-            int y = a[x][cur[x]];
-            if (leftMatch[y] < 0 || (dist[leftMatch[y]] == dist[x] + 1 && dfs(leftMatch[y]))) {
-                leftMatch[y] = x;
-                rightMatch[x] = y;
-                return 1;
-            }
+int max_flow() {
+    int flow_sum = 0;
+    int f;
+
+    while ((f = bfs())) {
+        flow_sum += f;
+
+        // Backtrack from Sink to Source using parent array
+        // 'e' is the edge index.
+        // 'to[e ^ 1]' gives the node u where the edge u->v started.
+
+        for (int e = par[snk]; ~e; e = par[to[e ^ 1]]) {
+            cap[e] -= f; // Decrease forward capacity
+            cap[e ^ 1] += f; // Increase backward capacity (residual)
         }
-        return 0;
     }
 
-    int maxMatching() {
-        int match = 0;
-        while (bfs()) {
-            for (int i = 0; i < n; i++) cur[i] = 0;
-            for (int i = 0; i < n; i++)
-                if (rightMatch[i] < 0) match += dfs(i);
-        }
-        return match;
-    }
-};
+    return flow_sum;
+}

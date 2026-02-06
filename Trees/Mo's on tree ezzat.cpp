@@ -119,6 +119,7 @@ void code() {
         while (l < L)toggle(dfsorder[l++]);
         while (r > R)toggle(dfsorder[r--]);
         toggle(dfsorder[tin[qlca[Idx]]]);
+        // query the ans here
         toggle(dfsorder[tin[qlca[Idx]]]);
     }
     for (int i = 0; i < q; ++i) {

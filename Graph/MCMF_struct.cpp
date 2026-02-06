@@ -1,28 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
 struct Edge {
     int to;
     int cost;
     int cap, flow, backEdge;
 };
- 
-struct MCMF 
-{
- 
+
+struct MCMF {
+
     const int inf = 1000000010;
     int n;
     vector<vector<Edge>> g;
- 
+
     MCMF(int _n) {
         n = _n + 1;
         g.resize(n);
     }
- 
+
     void addEdge(int u, int v, int cap, int cost) {
         Edge e1 = {v, cost, cap, 0, (int) g[v].size()};
         Edge e2 = {u, -cost, 0, 0, (int) g[u].size()};
         g[u].push_back(e1);
         g[v].push_back(e2);
     }
- 
+
     pair<int, int> minCostMaxFlow(int s, int t) {
         int flow = 0;
         int cost = 0;
