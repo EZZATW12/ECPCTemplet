@@ -1,0 +1,125 @@
+\contentsline {section}{\numberline {1}Clean}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}clean}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}geo}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Combinatorics}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}nCr}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}stars\_and\_bars}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Data Structures}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}2D BIT}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}4D prefix sum}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}BIT}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Coordinate Compression}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}DSU with array sz}{8}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}DSU}{8}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Dynamic Segment Tree}{8}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Lazy Segment Tree}{9}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Max Sum in Subarray With update}{10}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Merge Sort Tree With update}{11}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Merge sort tree}{12}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}MO}{12}{subsection.3.12}%
+\contentsline {subsection}{\numberline {3.13}Monotonic Queue}{13}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.14}Monotonic Stack}{13}{subsection.3.14}%
+\contentsline {subsection}{\numberline {3.15}Order Set}{14}{subsection.3.15}%
+\contentsline {subsection}{\numberline {3.16}Palindromic Tree Persistent}{14}{subsection.3.16}%
+\contentsline {subsection}{\numberline {3.17}Persistent Trie}{15}{subsection.3.17}%
+\contentsline {subsection}{\numberline {3.18}Segment Tree Beats}{15}{subsection.3.18}%
+\contentsline {subsection}{\numberline {3.19}Segment Tree}{18}{subsection.3.19}%
+\contentsline {subsection}{\numberline {3.20}Segtree Tree Iterative}{18}{subsection.3.20}%
+\contentsline {subsection}{\numberline {3.21}Sparse Segment Tree}{19}{subsection.3.21}%
+\contentsline {subsection}{\numberline {3.22}Sparse\_Table}{19}{subsection.3.22}%
+\contentsline {subsection}{\numberline {3.23}SQRT}{20}{subsection.3.23}%
+\contentsline {subsection}{\numberline {3.24}Treap persistent}{20}{subsection.3.24}%
+\contentsline {section}{\numberline {4}DP Optimizations}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Convex Hull Trick}{21}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Fast}{22}{section.5}%
+\contentsline {subsection}{\numberline {5.1}dp bitset}{22}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Geometry}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Angle Between Vectors}{22}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Area of Polygon}{23}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Area of Triangle}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Bisector}{23}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Center Circle Pass 3 points}{24}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Check if polygon is rectangle and Square}{24}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Dist Between 2 Segment}{25}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Dist from point to line}{26}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Dist from point to seg}{26}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Distance between 2 polygons}{27}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11}Distance between rays}{29}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.12}Equation Line by point and vector}{29}{subsection.6.12}%
+\contentsline {subsection}{\numberline {6.13}Equation Line passing through 2 points}{29}{subsection.6.13}%
+\contentsline {subsection}{\numberline {6.14}Finding common tangents to two circles}{30}{subsection.6.14}%
+\contentsline {subsection}{\numberline {6.15}Intersec Between 2 line}{31}{subsection.6.15}%
+\contentsline {subsection}{\numberline {6.16}Intersection between 2 Circle}{31}{subsection.6.16}%
+\contentsline {subsection}{\numberline {6.17}Intersection Between Circle and Line}{32}{subsection.6.17}%
+\contentsline {subsection}{\numberline {6.18}Intersection between line and segment}{32}{subsection.6.18}%
+\contentsline {subsection}{\numberline {6.19}Intersection between two segments}{33}{subsection.6.19}%
+\contentsline {subsection}{\numberline {6.20}Is 2 points on same side of line}{34}{subsection.6.20}%
+\contentsline {subsection}{\numberline {6.21}Is 2 Segment Intersect}{34}{subsection.6.21}%
+\contentsline {subsection}{\numberline {6.22}Is point on segment}{35}{subsection.6.22}%
+\contentsline {subsection}{\numberline {6.23}Is the point on line}{35}{subsection.6.23}%
+\contentsline {subsection}{\numberline {6.24}Is the point on ray}{35}{subsection.6.24}%
+\contentsline {subsection}{\numberline {6.25}Lattice Points}{36}{subsection.6.25}%
+\contentsline {subsection}{\numberline {6.26}Length of the union of segments}{36}{subsection.6.26}%
+\contentsline {subsection}{\numberline {6.27}Location of Point in line}{36}{subsection.6.27}%
+\contentsline {subsection}{\numberline {6.28}MEC}{37}{subsection.6.28}%
+\contentsline {subsection}{\numberline {6.29}Minkowski sum of convex polygons}{37}{subsection.6.29}%
+\contentsline {subsection}{\numberline {6.30}Point Location Relative to Polygon}{38}{subsection.6.30}%
+\contentsline {subsection}{\numberline {6.31}Polar Angle}{39}{subsection.6.31}%
+\contentsline {subsection}{\numberline {6.32}Polar Sort}{39}{subsection.6.32}%
+\contentsline {subsection}{\numberline {6.33}struct line}{39}{subsection.6.33}%
+\contentsline {subsection}{\numberline {6.34}type of intersection between Circle and Line}{40}{subsection.6.34}%
+\contentsline {subsection}{\numberline {6.35}vector length}{41}{subsection.6.35}%
+\contentsline {subsection}{\numberline {6.36}winding Number}{41}{subsection.6.36}%
+\contentsline {subsection}{\numberline {6.37}WindingNumber for Integers}{42}{subsection.6.37}%
+\contentsline {section}{\numberline {7}Graph Algorithms}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}articulation\_points}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}BCC}{43}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Bellman-Ford}{43}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Bridges}{44}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Bron–Kerbosch}{44}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Dinics Algorithm}{45}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Floyed}{46}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Hungarian Algorithm}{46}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}SCC\_Kosaraju}{47}{subsection.7.9}%
+\contentsline {subsection}{\numberline {7.10}SCC\_Tarjan\_s}{47}{subsection.7.10}%
+\contentsline {subsection}{\numberline {7.11}small to large}{48}{subsection.7.11}%
+\contentsline {section}{\numberline {8}Math}{49}{section.8}%
+\contentsline {subsection}{\numberline {8.1}bezout\_sIdentity}{49}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Fast\_Power}{49}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}MatrixExpo}{49}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Mod INV by phi}{50}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}mod inverse for not prime}{50}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}NTT}{50}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}XOR Basis}{51}{subsection.8.7}%
+\contentsline {section}{\numberline {9}Number Theory}{52}{section.9}%
+\contentsline {subsection}{\numberline {9.1}CRT}{52}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}divisors}{52}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Euler\_s\_totient}{52}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}is\_prime}{52}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}linearSieve}{53}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Miller-Rabin}{53}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Pollard Rho}{53}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}PrimeFactorization}{54}{subsection.9.8}%
+\contentsline {section}{\numberline {10}Random}{54}{section.10}%
+\contentsline {subsection}{\numberline {10.1}random\_range}{54}{subsection.10.1}%
+\contentsline {section}{\numberline {11}String Algorithms}{54}{section.11}%
+\contentsline {subsection}{\numberline {11.1}ahoCorasick}{54}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}compute\_automaton}{55}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Hashing}{56}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Hashing2D}{56}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}KMP for integer}{57}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}KMP}{57}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}SuffixArrayWithSparseTable}{58}{subsection.11.7}%
+\contentsline {subsection}{\numberline {11.8}SuffixArrayWithVectorInt}{59}{subsection.11.8}%
+\contentsline {subsection}{\numberline {11.9}Suffux\_Array}{60}{subsection.11.9}%
+\contentsline {subsection}{\numberline {11.10}Trie}{61}{subsection.11.10}%
+\contentsline {subsection}{\numberline {11.11}Trie01}{62}{subsection.11.11}%
+\contentsline {section}{\numberline {12}Trees}{62}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Centroid}{62}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}diameter}{63}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}eular\_tour}{63}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}HLD}{64}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}LCA with Sparse Tables}{65}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}lca}{65}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}Max Query by LCA}{66}{subsection.12.7}%
+\contentsline {subsection}{\numberline {12.8}MO on Tree}{66}{subsection.12.8}%
