@@ -1,63 +1,47 @@
-struct Aho_corasick {
-    struct Node {
-        int link{}, sean{};
-        vector<int> to, aut, ids, g;
+struct Aho {
+    int N, P;
+    const int Alpha = 26;
+    vector<vector<int>> nxt;
+    vector<int> link, out_link, out;
 
-        Node() {
-            aut.assign(26, 0);
-            to.assign(26, -1);
-        }
-    };
-    vector<Node> trie;
-    vector<long long> ans;
-    Aho_corasick() { trie.emplace_back(); }
-    void insert(const string &ele, const int &id) {
-        int u = 0;
-        for (auto &ch: ele) {
-            if (trie[u].to[ch - 'a'] == -1) {
-                trie[u].to[ch - 'a'] = (int) trie.size();
-                trie.emplace_back();
-            }
-            u = trie[u].to[ch - 'a'];
-        }
-        trie[u].ids.push_back(id);
+    int Node() {
+        nxt.emplace_back(Alpha, 0);
+        link.emplace_back(0);
+        out_link.emplace_back(0);
+        out.emplace_back(-1);
+        return N++;
     }
-    void compute_automaton() {
+
+    Aho() : N(0), P(0) { Node(); }
+
+    void insert(const string T, int idx) {
+        int u = 0;
+        for (auto &c: T) {
+            if (nxt[u][c - 'a'] == 0) nxt[u][c - 'a'] = Node();
+            u = nxt[u][c - 'a'];
+        }
+        out[u] = idx, P++;
+    }
+
+    void build() {
         queue<int> q;
         q.push(0);
         while (!q.empty()) {
             int u = q.front();
             q.pop();
-            Node &cur = trie[u];
-            for (int i = 0; i < 26; ++i) {
-                if (!~cur.to[i]) {
-                    cur.aut[i] = trie[cur.link].aut[i];
-                    continue;
+            for (int c = 0; c < Alpha; ++c) {
+                int v = nxt[u][c];
+                if (!v)nxt[u][c] = nxt[link[u]][c];
+                else {
+                    link[v] = u ? nxt[link[u]][c] : 0;
+                    out_link[v] = !~out[link[v]] ? out_link[link[v]] : link[v];
+                    q.push(v);
                 }
-                Node &next = trie[cur.to[i]];
-                next.link = (u == 0 ? 0 : trie[cur.link].aut[i]);
-                cur.aut[i] = cur.to[i];
-                trie[next.link].g.push_back(cur.to[i]);
-                q.push(cur.to[i]);
             }
         }
     }
-    void match(const string &text, const int &sz) {
-        compute_automaton();
-        ans.assign(sz, 0);
-        int u = 0;
-        for (auto &ch: text) {
-            u = trie[u].aut[ch - 'a'];
-            trie[u].sean++;
-        }
-        dfs(0);
-    }
-    long long dfs(int u) {
-        long long res = trie[u].sean;
-        for (auto &v: trie[u].g)
-            res += dfs(v);
-        for (auto &id: trie[u].ids)
-            ans[id] = res;
-        return res;
+
+    int advance(int u, char c) {
+        return nxt[u][c - 'a'];
     }
 };

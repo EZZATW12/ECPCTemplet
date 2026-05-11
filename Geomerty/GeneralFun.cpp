@@ -307,6 +307,18 @@ bool sameLine(const line &L1, const line &L2) {
     return true;
 }
 
+void sort_ccw(vector<pt> &v) {
+    pt center(0, 0);
+    for (auto p: v) {
+        center += p;
+    }
+    center /= (int) v.size();
+
+    sort(v.begin(), v.end(), [&](pt a, pt b) {
+        T ang1 = atan2l(a.y - center.y, a.x - center.x);
+        T ang2 = atan2l(b.y - center.y, b.x - center.x);
+        return ang1 < ang2;
+    });
 }
 
 int main() {
