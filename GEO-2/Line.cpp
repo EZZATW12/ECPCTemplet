@@ -34,11 +34,11 @@ line bisector(line l1, line l2, bool interior) {
 bool inDisk(pt a, pt b, pt p) { return sgn(dot(a - p, b - p)) <= 0; }
 bool onSegment(pt a, pt b, pt p) { return sgn(orient(a, b, p)) == 0 && inDisk(a, b, p); }
 
-bool properInter(pt a, pt b, pt c, pt d, pt &out) {
-    T oa = orient(c, d, a), ob = orient(c, d, b);
-    T oc = orient(a, b, c), od = orient(a, b, d);
-    if (sgn(oa) * sgn(ob) < 0 && sgn(oc) * sgn(od) < 0) {
-        out = (a * ob - b * oa) / (ob - oa);
+bool properInter(pt a, pt b, pt c, pt d, pt &inter) {
+    T oa = orient(c, d, a), ob = orient(c, d, b), oc = orient(a, b, c), od = orient(a, b, d);
+    if (oa * ob < 0 && oc * od < 0) {
+        T s = oa / (oa - ob);
+        inter = a + s * (b - a);
         return true;
     }
     return false;
