@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: No (integer-safe if pt coordinates are integers; uses dot product)
+ * Requirements: Polygon must be convex. Top upper right vertex must be provided.
+ */
 // id of the vertex having maximum dot product with z
 // polygon must need to be convex
 // top - upper right vertex

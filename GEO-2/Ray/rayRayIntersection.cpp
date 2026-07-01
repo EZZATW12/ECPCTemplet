@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses fabs, EPS, and division)
+ * Requirements: Rays must not be collinear.
+ */
 bool rayRayIntersection(pt as, pt ad, pt bs, pt bd) {
     T dx = bs.X - as.X, dy = bs.Y - as.Y;
     T det = bd.X * ad.Y - bd.Y * ad.X;

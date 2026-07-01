@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses PI, sin, tan, and floating-point arithmetic)
+ * Requirements: None
+ */
 struct Star {
     int n;    // number of sides of the star
     T r;      // radius of the circumcircle

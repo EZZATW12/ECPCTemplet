@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses sqrt, abs, division, perp, sgn)
+ * Requirements: None
+ */
 // tangent lines from point q to the circle
 int tangentLinesFromPoint(pt p, T r, pt q, line &u, line &v) {
     int x = sgn(sq(p - q) - r * r);

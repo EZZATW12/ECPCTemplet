@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses sqrt, division, perp)
+ * Requirements: None
+ */
 // returns outer tangents line of two circles
 // if inner == 1 it returns inner tangent lines
 int tangentsLinesFromCircle(pt c1, T r1, pt c2, T r2, bool inner, line &u, line &v) {

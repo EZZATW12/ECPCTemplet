@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N + M)
+ * Floating Point: Yes (uses sqrt)
+ * Requirements: Both polygons must be convex. Points must be sorted in CCW order.
+ */
 // maximum distance from a convex polygon to another convex polygon
 T maximumDistFromPolygonToPolygon(vector<pt> u, vector<pt> v){ //O(n)
     int n = (int)u.size(), m = (int)v.size();

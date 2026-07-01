@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: No (integer-safe; uses orient and sgn)
+ * Requirements: Polygon must be strictly convex.
+ */
 // -1 if strictly inside, 0 if on the polygon, 1 if strictly outside
 // it must be strictly convex, otherwise make it strictly convex first
 int isPointInConvex(const vector<pt> &p, const pt& x) { // O(log n)

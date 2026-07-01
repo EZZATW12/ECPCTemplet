@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (uses sqrt to compute final diameter)
+ * Requirements: Polygon must be convex. Points must be sorted in CCW order.
+ */
 // maximum distance from any point on the perimeter to another point on the perimeter
 T diameter(const vector<pt> &p) {
     int n = (int)p.size();

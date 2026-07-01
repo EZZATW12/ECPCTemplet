@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses abs, acos, sin, division, EPS, PI)
+ * Requirements: None
+ */
 // returns area of intersection between two circles
 T circleCircleArea(pt a, T r1, pt b, T r2) {
     T d = abs(a - b);

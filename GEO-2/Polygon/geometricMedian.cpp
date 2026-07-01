@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N log^2(MX))
+ * Floating Point: Yes (uses ternary search with floating point division and literals)
+ * Requirements: None
+ */
 // it returns a point such that the sum of distances
 // from that point to all points in p is minimum
 // O(n log^2 MX)

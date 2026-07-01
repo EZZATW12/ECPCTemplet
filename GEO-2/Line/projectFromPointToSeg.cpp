@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses division for ratio)
+ * Requirements: None
+ */
 pt projectFromPointToSeg(pt a, pt b, pt c) {
     T r = sq(a - b);
     if (sgn(r) == 0) return a;

@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N log N)
+ * Floating Point: Yes (uses division, EPS, and abs)
+ * Requirements: None
+ */
 // not necessarily convex, boundary is included in the intersection
 // returns total intersected length
 // it returns the sum of the lengths of the portions of the line that are inside the polygon

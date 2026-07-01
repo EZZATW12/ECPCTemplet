@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: No (integer safe)
+ * Requirements: None
+ */
 // 1 if ccw, 2 if cw, 3 if on line
 int pointLineRelation(pt a, pt b, pt p) {
     int c = sgn(cross(p - a, b - a));

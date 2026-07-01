@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (uses floating literal 1e100 and l.dist)
+ * Requirements: Polygon must be convex. Points must be sorted in CCW order.
+ */
 // minimum distance between two parallel lines (non necessarily axis parallel)
 // such that the polygon can be put between the lines
 T width(const vector<pt> &p) {

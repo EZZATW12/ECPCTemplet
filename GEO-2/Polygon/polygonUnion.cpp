@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N^2 log N) where N is the total number of points
+ * Floating Point: Yes (uses float division in rat, double literals like 0.5, and min/max on floats)
+ * Requirements: Points within each polygon must be sorted in CCW order.
+ */
 T rat(pt a, pt b, pt p) {
     return !sgn(a.X - b.X) ? (p.Y - a.Y) / (b.Y - a.Y) : (p.X - a.X) / (b.X - a.X);
 }

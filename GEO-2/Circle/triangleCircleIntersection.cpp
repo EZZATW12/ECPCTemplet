@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses sqrt, max, abs, acos, division, sq)
+ * Requirements: None
+ */
 // returns the area of the intersection of the circle with center c and radius r
 // and the triangle formed by the points c, a, b
 T triangleCircleIntersection(pt c, T r, pt a, pt b) {

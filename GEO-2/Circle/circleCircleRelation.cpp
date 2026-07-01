@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses abs, fabs, sgn)
+ * Requirements: None
+ */
 //5 - outside and do not intersect
 //4 - intersect outside in one point
 //3 - intersect in 2 points

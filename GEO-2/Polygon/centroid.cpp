@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (uses division and scaling factor 3.0)
+ * Requirements: None
+ */
 pt centroid(const vector<pt> &p) {
     int n = p.size(); pt c(0, 0);
     T sum = 0;

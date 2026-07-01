@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N + M)
+ * Floating Point: No (integer-safe if pt is integer; uses cross and sgn)
+ * Requirements: Both polygons must be convex.
+ */
 // a and b are convex polygons
 // returns a convex hull of their minkowski sum
 // min(a.size(), b.size()) >= 2

@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: No (strictly integer-safe operations like orient and cross product)
+ * Requirements: Polygon must be convex. Top vertex of the polygon must be provided.
+ */
 // given a convex polygon p, and a line ab and the top vertex of the polygon
 // returns the intersection of the line with the polygon
 // it returns the indices of the edges of the polygon that are intersected by the line

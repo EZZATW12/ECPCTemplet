@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N log N)
+ * Floating Point: No (integer-safe, uses cross product and squared distances)
+ * Requirements: None
+ */
 void polarSort(vector<pt> &v) {
     sort(v.begin(), v.end(), [](pt a, pt b) {
         return make_tuple(half(a), 0.0, sq(a)) < make_tuple(half(b), cross(a, b), sq(b));

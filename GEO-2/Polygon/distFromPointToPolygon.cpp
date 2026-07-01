@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: Yes (uses double literals 1e100, sqrt, and segPoint)
+ * Requirements: Polygon must be convex. Point must lie strictly outside the polygon.
+ */
 // minimum distance from a point to a convex polygon
 // it assumes point lie strictly outside the polygon
 T distFromPointToPolygon(const vector<pt> &p, pt z) {

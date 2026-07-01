@@ -1,4 +1,9 @@
-// returns 1e9 if the point is on the polygon 
+/**
+ * Time Complexity: O(N)
+ * Floating Point: No (integer-safe; uses orient and sgn)
+ * Requirements: None
+ */
+// returns 1e9 if the point is on the polygon
 int windingNumber(const vector<pt> &p, const pt& z) { // O(n)
     if (isPointOnPolygon(p, z)) return 1e9;
     int n = p.size(), ans = 0;

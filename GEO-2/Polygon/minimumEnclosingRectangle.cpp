@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (uses double literal 1e100, division, and l.dist)
+ * Requirements: Polygon must be convex. Points must be sorted in CCW order.
+ */
 // minimum perimeter
 T minimumEnclosingRectangle(const vector<pt> &p) {
     int n = p.size();

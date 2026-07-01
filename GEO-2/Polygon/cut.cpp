@@ -1,4 +1,9 @@
-// returns a vector with the vertices of a polygon with everything 
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (computes segment intersection using inter, which requires floats)
+ * Requirements: None
+ */
+// returns a vector with the vertices of a polygon with everything
 // to the left of the line going from a to b cut away.
 vector<pt> cut(const vector<pt> &p, pt a, pt b) {
     vector<pt> ans;

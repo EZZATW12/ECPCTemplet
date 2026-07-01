@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: No (integer-safe; relies on orient and sgn)
+ * Requirements: Polygon must be convex.
+ */
 pair<pt, int> pointPolyTangent(const vector<pt> &p, pt Q, int dir, int l, int r) {
     while (r - l > 1) {
         int mid = (l + r) >> 1;

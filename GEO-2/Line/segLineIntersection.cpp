@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses division)
+ * Requirements: Segment and line must not be collinear.
+ */
 bool segLineIntersection(pt a, pt b, pt c, pt d, pt &ans) {
     int k = segLineRelation(a, b, c, d);
     assert(k != 2);

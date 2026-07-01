@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N^3)
+ * Floating Point: No (integer-safe; relies on orient and isPointInTriangle)
+ * Requirements: None
+ */
 // ear decomposition, O(n^3) but faster
 vector<vector<pt>> triangulate(vector<pt> p) {
     vector<vector<pt>> v;

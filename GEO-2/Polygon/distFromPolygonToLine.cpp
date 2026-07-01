@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(log N)
+ * Floating Point: Yes (returns floating point distance via line.dist and literal 0.0)
+ * Requirements: Polygon must be convex. Top upper right vertex must be provided.
+ */
 // minimum distance from convex polygon p to line ab
 // returns 0 is it intersects with the polygon
 // top - upper right vertex

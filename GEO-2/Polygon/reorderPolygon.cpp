@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: No (integer-safe; uses sgn)
+ * Requirements: None
+ */
 // rotate the polygon such that the (bottom, left)-most point is at the first position
 void reorderPolygon(vector<pt> &p) {
     int pos = 0;

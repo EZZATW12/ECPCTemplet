@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses line::dist, sgn)
+ * Requirements: None
+ */
 // 0 if outside, 1 if on circumference, 2 if inside circle
 int circleLineRelation(pt p, T r, pt a, pt b) {
     line l(a, b);

@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: Expected O(N)
+ * Floating Point: Yes (uses division, abs, perp, sgn)
+ * Requirements: None
+ */
 // given n points, find the minimum enclosing circle of the points
 // call convex_hull() before this for faster solution
 // expected O(n)

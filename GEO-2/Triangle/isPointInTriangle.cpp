@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: No (integer-safe, only uses cross product and sign checks)
+ * Requirements: None
+ */
 // -1 if strictly inside, 0 if on the polygon, 1 if strictly outside
 int isPointInTriangle(pt a, pt b, pt c, pt p) {
     if (sgn(cross(b - a, c - a)) < 0) swap(b, c);

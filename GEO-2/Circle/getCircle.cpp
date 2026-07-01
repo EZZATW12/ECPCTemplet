@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses division, sgn, abs)
+ * Requirements: None
+ */
 // requires circleCircleInter from Circle.cpp
 // returns two circle c1, c2 through points a, b and of radius r
 // 0 if there is no such circle, 1 if one circle, 2 if two circle

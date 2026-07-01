@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N log N * log(MAX_R / EPS))
+ * Floating Point: Yes (binary search on floats, EPS, abs, perp)
+ * Requirements: Polygon must be convex. Points must be sorted in CCW order.
+ */
 // radius of the maximum inscribed circle in a convex polygon
 T maximumInscribedCircle(const vector<pt>& p) {
     int n = p.size();

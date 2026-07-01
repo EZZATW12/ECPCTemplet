@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N log(MAX_R))
+ * Floating Point: Yes (strictly relies on asin, sin, double literals, PI, and EPS)
+ * Requirements: Lengths of sides must be given in CCW order.
+ */
 // given a list of lengths of the sides of a polygon in counterclockwise order
 // returns the maximum area of a non-degenerate polygon that can be formed using those lengths
 T getMaximumPolygonAreaForGivenLengths(vector<T> v) {

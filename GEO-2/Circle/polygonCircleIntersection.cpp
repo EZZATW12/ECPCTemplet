@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N)
+ * Floating Point: Yes (uses triangleCircleIntersection, abs, sgn)
+ * Requirements: Polygon must be simple.
+ */
 // intersection between a simple polygon and a circle
 T polygonCircleIntersection(const vector<pt> &v, pt p, T r) {
     int n = v.size();

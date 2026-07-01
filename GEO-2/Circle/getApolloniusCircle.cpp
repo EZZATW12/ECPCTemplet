@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(1)
+ * Floating Point: Yes (uses division, sqrt, sgn)
+ * Requirements: rp != rq
+ */
 // returns the center and radius of the circle such that for all points w on the circumference of the circle
 // dist(w, a) : dist(w, b) = rp : rq
 // rp != rq

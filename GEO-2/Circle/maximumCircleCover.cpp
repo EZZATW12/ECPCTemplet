@@ -1,3 +1,8 @@
+/**
+ * Time Complexity: O(N^2 log N)
+ * Floating Point: Yes (uses abs, arg, acos, cos, sin, EPS, PI)
+ * Requirements: None
+ */
 // find a circle of radius r that contains as many points as possible
 // O(n^2 log n);
 int maximumCircleCover(const vector<pt>& p, T r, pt &c_out) {
