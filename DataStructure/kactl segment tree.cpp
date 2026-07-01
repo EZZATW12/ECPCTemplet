@@ -1,23 +1,18 @@
 struct Tree {
     struct Node {
-        ll sum;
-
-        Node() {
-            sum = 0;
-        }
+        long long sum;
+        Node() : sum(0) {}
     };
 
     typedef Node T;
-
     T f(T a, T b) {
         Node ret;
         ret.sum = a.sum + b.sum;
         return ret;
     }
 
-    vector<T> s;
+    vector <T> s;
     int n;
-
     Tree(int n = 0) : s(2 * n, Node()), n(n) {}
 
     void update(int pos, T val) {
@@ -25,12 +20,12 @@ struct Tree {
             s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
     }
 
-    T query(int b, int e) {
-        e++;
+    T query(int l, int r) {
+        r++;
         T ra = Node(), rb = Node();
-        for (b += n, e += n; b < e; b /= 2, e /= 2) {
-            if (b % 2) ra = f(ra, s[b++]);
-            if (e % 2) rb = f(s[--e], rb);
+        for (l += n, r += n; l < r; l /= 2, r /= 2) {
+            if (l % 2) ra = f(ra, s[l++]);
+            if (r % 2) rb = f(s[--r], rb);
         }
         return f(ra, rb);
     }

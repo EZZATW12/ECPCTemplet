@@ -1,0 +1,530 @@
+PWD C:\Users\ezzat\OneDrive\Desktop\CP
+INPUT C:\Users\ezzat\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Users\ezzat\OneDrive\Desktop\CP\main.tex
+OUTPUT main.log
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\fontenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\fontenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\lmodern.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\lmodern.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listingsutf8\listingsutf8.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listingsutf8\listingsutf8.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\stringenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\stringenc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\pdfescape\pdfescape.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\pdfescape\pdfescape.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\puenc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\puenc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\puenc.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\url\url.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\url\url.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\bitset\bitset.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\bitset\bitset.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr10.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT .\main.aux
+INPUT .\main.aux
+INPUT main.aux
+OUTPUT main.aux
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT .\main.out
+INPUT .\main.out
+INPUT main.out
+INPUT main.out
+OUTPUT main.pdf
+INPUT .\main.out
+INPUT .\main.out
+OUTPUT main.out
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr17.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr9.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr12.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
+INPUT .\main.toc
+INPUT .\main.toc
+INPUT main.toc
+OUTPUT main.toc
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx9.tfm
+INPUT C:\Users\ezzat\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx10.tfm
+INPUT .\Clean\clean.cpp
+INPUT .\Clean\clean.cpp
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt10.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt8.tfm
+INPUT Clean\clean.cpp
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr7.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr5.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtti10.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmtt8.tfm
+INPUT .\Clean\geo.cpp
+INPUT .\Clean\geo.cpp
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\cp1252.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\cp1252.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\latex\base\cp1252.def
+INPUT .\Clean\geo.cpp
+INPUT .\Clean\geo.cpp
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-cp1252.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-cp1252.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-cp1252.def
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmtti10.tfm
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ts1.enc
+INPUT .\Combinatorics\nCr.cpp
+INPUT .\Combinatorics\nCr.cpp
+INPUT Combinatorics\nCr.cpp
+INPUT .\Combinatorics\stars_and_bars.cpp
+INPUT .\Combinatorics\stars_and_bars.cpp
+INPUT Combinatorics\stars_and_bars.cpp
+INPUT .\Data Structure\2D BIT.cpp
+INPUT .\Data Structure\2D BIT.cpp
+INPUT Data Structure\2D BIT.cpp
+INPUT .\Data Structure\4D prefix sum.cpp
+INPUT .\Data Structure\4D prefix sum.cpp
+INPUT Data Structure\4D prefix sum.cpp
+INPUT .\Data Structure\BIT.cpp
+INPUT .\Data Structure\BIT.cpp
+INPUT Data Structure\BIT.cpp
+INPUT .\Data Structure\Coordinate Compression.cpp
+INPUT .\Data Structure\Coordinate Compression.cpp
+INPUT Data Structure\Coordinate Compression.cpp
+INPUT .\Data Structure\DSU with array sz.cpp
+INPUT .\Data Structure\DSU with array sz.cpp
+INPUT Data Structure\DSU with array sz.cpp
+INPUT .\Data Structure\DSU.cpp
+INPUT .\Data Structure\DSU.cpp
+INPUT Data Structure\DSU.cpp
+INPUT .\Data Structure\Dynamic Segment Tree.cpp
+INPUT .\Data Structure\Dynamic Segment Tree.cpp
+INPUT Data Structure\Dynamic Segment Tree.cpp
+INPUT .\Data Structure\Lazy Segment Tree.cpp
+INPUT .\Data Structure\Lazy Segment Tree.cpp
+INPUT Data Structure\Lazy Segment Tree.cpp
+INPUT .\Data Structure\Max Sum in Subarray With update.cpp
+INPUT .\Data Structure\Max Sum in Subarray With update.cpp
+INPUT Data Structure\Max Sum in Subarray With update.cpp
+INPUT .\Data Structure\Merge Sort Tree With update.cpp
+INPUT .\Data Structure\Merge Sort Tree With update.cpp
+INPUT Data Structure\Merge Sort Tree With update.cpp
+INPUT .\Data Structure\Merge sort tree.cpp
+INPUT .\Data Structure\Merge sort tree.cpp
+INPUT Data Structure\Merge sort tree.cpp
+INPUT .\Data Structure\MO.cpp
+INPUT .\Data Structure\MO.cpp
+INPUT Data Structure\MO.cpp
+INPUT .\Data Structure\Monotonic Queue.cpp
+INPUT .\Data Structure\Monotonic Queue.cpp
+INPUT Data Structure\Monotonic Queue.cpp
+INPUT .\Data Structure\Monotonic Stack.cpp
+INPUT .\Data Structure\Monotonic Stack.cpp
+INPUT Data Structure\Monotonic Stack.cpp
+INPUT .\Data Structure\Order Set.cpp
+INPUT .\Data Structure\Order Set.cpp
+INPUT Data Structure\Order Set.cpp
+INPUT .\Data Structure\Palindromic Tree Persistent.cpp
+INPUT .\Data Structure\Palindromic Tree Persistent.cpp
+INPUT Data Structure\Palindromic Tree Persistent.cpp
+INPUT .\Data Structure\Persistent Trie.cpp
+INPUT .\Data Structure\Persistent Trie.cpp
+INPUT Data Structure\Persistent Trie.cpp
+INPUT .\Data Structure\Segment Tree Beats.cpp
+INPUT .\Data Structure\Segment Tree Beats.cpp
+INPUT Data Structure\Segment Tree Beats.cpp
+INPUT .\Data Structure\Segment Tree.cpp
+INPUT .\Data Structure\Segment Tree.cpp
+INPUT Data Structure\Segment Tree.cpp
+INPUT .\Data Structure\Segtree Tree Iterative.cpp
+INPUT .\Data Structure\Segtree Tree Iterative.cpp
+INPUT Data Structure\Segtree Tree Iterative.cpp
+INPUT .\Data Structure\Sparse Segment Tree.cpp
+INPUT .\Data Structure\Sparse Segment Tree.cpp
+INPUT Data Structure\Sparse Segment Tree.cpp
+INPUT .\Data Structure\Sparse_Table.cpp
+INPUT .\Data Structure\Sparse_Table.cpp
+INPUT Data Structure\Sparse_Table.cpp
+INPUT .\Data Structure\SQRT.cpp
+INPUT .\Data Structure\SQRT.cpp
+INPUT Data Structure\SQRT.cpp
+INPUT .\Data Structure\Treap persistent.cpp
+INPUT .\Data Structure\Treap persistent.cpp
+INPUT Data Structure\Treap persistent.cpp
+INPUT .\DP Optimization\Convex Hull Trick.cpp
+INPUT .\DP Optimization\Convex Hull Trick.cpp
+INPUT DP Optimization\Convex Hull Trick.cpp
+INPUT .\fast\dp bitset.cpp
+INPUT .\fast\dp bitset.cpp
+INPUT fast\dp bitset.cpp
+INPUT .\Geometry\Angle Between Vectors.cpp
+INPUT .\Geometry\Angle Between Vectors.cpp
+INPUT Geometry\Angle Between Vectors.cpp
+INPUT .\Geometry\Area of Polygon.cpp
+INPUT .\Geometry\Area of Polygon.cpp
+INPUT Geometry\Area of Polygon.cpp
+INPUT .\Geometry\Area of Triangle.cpp
+INPUT .\Geometry\Area of Triangle.cpp
+INPUT Geometry\Area of Triangle.cpp
+INPUT .\Geometry\Bisector.cpp
+INPUT .\Geometry\Bisector.cpp
+INPUT Geometry\Bisector.cpp
+INPUT .\Geometry\Center Circle Pass 3 points.cpp
+INPUT .\Geometry\Center Circle Pass 3 points.cpp
+INPUT Geometry\Center Circle Pass 3 points.cpp
+INPUT .\Geometry\Check if polygon is rectangle and Square.cpp
+INPUT .\Geometry\Check if polygon is rectangle and Square.cpp
+INPUT Geometry\Check if polygon is rectangle and Square.cpp
+INPUT .\Geometry\Dist Between 2 Segment.cpp
+INPUT .\Geometry\Dist Between 2 Segment.cpp
+INPUT Geometry\Dist Between 2 Segment.cpp
+INPUT .\Geometry\Dist from point to line.cpp
+INPUT .\Geometry\Dist from point to line.cpp
+INPUT Geometry\Dist from point to line.cpp
+INPUT .\Geometry\Dist from point to seg.cpp
+INPUT .\Geometry\Dist from point to seg.cpp
+INPUT Geometry\Dist from point to seg.cpp
+INPUT .\Geometry\Distance between 2 polygons.cpp
+INPUT .\Geometry\Distance between 2 polygons.cpp
+INPUT Geometry\Distance between 2 polygons.cpp
+INPUT .\Geometry\Distance between rays.cpp
+INPUT .\Geometry\Distance between rays.cpp
+INPUT Geometry\Distance between rays.cpp
+INPUT .\Geometry\Equation Line by point and vector.cpp
+INPUT .\Geometry\Equation Line by point and vector.cpp
+INPUT Geometry\Equation Line by point and vector.cpp
+INPUT .\Geometry\Equation Line passing through 2 points.cpp
+INPUT .\Geometry\Equation Line passing through 2 points.cpp
+INPUT Geometry\Equation Line passing through 2 points.cpp
+INPUT .\Geometry\Finding common tangents to two circles.cpp
+INPUT .\Geometry\Finding common tangents to two circles.cpp
+INPUT Geometry\Finding common tangents to two circles.cpp
+INPUT .\Geometry\Intersec Between 2 line.cpp
+INPUT .\Geometry\Intersec Between 2 line.cpp
+INPUT Geometry\Intersec Between 2 line.cpp
+INPUT .\Geometry\Intersection between 2 Circle.cpp
+INPUT .\Geometry\Intersection between 2 Circle.cpp
+INPUT Geometry\Intersection between 2 Circle.cpp
+INPUT .\Geometry\Intersection Between Circle and Line.cpp
+INPUT .\Geometry\Intersection Between Circle and Line.cpp
+INPUT Geometry\Intersection Between Circle and Line.cpp
+INPUT .\Geometry\Intersection between line and segment.cpp
+INPUT .\Geometry\Intersection between line and segment.cpp
+INPUT Geometry\Intersection between line and segment.cpp
+INPUT .\Geometry\Intersection between two segments.cpp
+INPUT .\Geometry\Intersection between two segments.cpp
+INPUT Geometry\Intersection between two segments.cpp
+INPUT .\Geometry\Is 2 points on same side of line.cpp
+INPUT .\Geometry\Is 2 points on same side of line.cpp
+INPUT Geometry\Is 2 points on same side of line.cpp
+INPUT .\Geometry\Is 2 Segment Intersect.cpp
+INPUT .\Geometry\Is 2 Segment Intersect.cpp
+INPUT Geometry\Is 2 Segment Intersect.cpp
+INPUT .\Geometry\Is point on segment.cpp
+INPUT .\Geometry\Is point on segment.cpp
+INPUT Geometry\Is point on segment.cpp
+INPUT .\Geometry\Is the point on line.cpp
+INPUT .\Geometry\Is the point on line.cpp
+INPUT Geometry\Is the point on line.cpp
+INPUT .\Geometry\Is the point on ray.cpp
+INPUT .\Geometry\Is the point on ray.cpp
+INPUT Geometry\Is the point on ray.cpp
+INPUT .\Geometry\Lattice Points.cpp
+INPUT .\Geometry\Lattice Points.cpp
+INPUT Geometry\Lattice Points.cpp
+INPUT .\Geometry\Length of the union of segments.cpp
+INPUT .\Geometry\Length of the union of segments.cpp
+INPUT Geometry\Length of the union of segments.cpp
+INPUT .\Geometry\Location of Point in line.cpp
+INPUT .\Geometry\Location of Point in line.cpp
+INPUT Geometry\Location of Point in line.cpp
+INPUT .\Geometry\MEC.cpp
+INPUT .\Geometry\MEC.cpp
+INPUT Geometry\MEC.cpp
+INPUT .\Geometry\Minkowski sum of convex polygons.cpp
+INPUT .\Geometry\Minkowski sum of convex polygons.cpp
+INPUT Geometry\Minkowski sum of convex polygons.cpp
+INPUT .\Geometry\Point Location Relative to Polygon.cpp
+INPUT .\Geometry\Point Location Relative to Polygon.cpp
+INPUT Geometry\Point Location Relative to Polygon.cpp
+INPUT .\Geometry\Polar Angle.cpp
+INPUT .\Geometry\Polar Angle.cpp
+INPUT Geometry\Polar Angle.cpp
+INPUT .\Geometry\Polar Sort.cpp
+INPUT .\Geometry\Polar Sort.cpp
+INPUT Geometry\Polar Sort.cpp
+INPUT .\Geometry\struct line.cpp
+INPUT .\Geometry\struct line.cpp
+INPUT Geometry\struct line.cpp
+INPUT .\Geometry\type of intersection between Circle and Line.cpp
+INPUT .\Geometry\type of intersection between Circle and Line.cpp
+INPUT Geometry\type of intersection between Circle and Line.cpp
+INPUT .\Geometry\vector length.cpp
+INPUT .\Geometry\vector length.cpp
+INPUT Geometry\vector length.cpp
+INPUT .\Geometry\winding Number.cpp
+INPUT .\Geometry\winding Number.cpp
+INPUT Geometry\winding Number.cpp
+INPUT .\Geometry\WindingNumber for Integers.cpp
+INPUT .\Geometry\WindingNumber for Integers.cpp
+INPUT Geometry\WindingNumber for Integers.cpp
+INPUT .\Graph\articulation_points.cpp
+INPUT .\Graph\articulation_points.cpp
+INPUT Graph\articulation_points.cpp
+INPUT .\Graph\BCC.cpp
+INPUT .\Graph\BCC.cpp
+INPUT Graph\BCC.cpp
+INPUT .\Graph\Bellman-Ford.cpp
+INPUT .\Graph\Bellman-Ford.cpp
+INPUT Graph\Bellman-Ford.cpp
+INPUT .\Graph\Bridges.cpp
+INPUT .\Graph\Bridges.cpp
+INPUT Graph\Bridges.cpp
+INPUT .\Graph\Bron–Kerbosch.cpp
+INPUT .\Graph\Bron–Kerbosch.cpp
+INPUT Graph\Bron–Kerbosch.cpp
+INPUT .\Graph\Dinics Algorithm.cpp
+INPUT .\Graph\Dinics Algorithm.cpp
+INPUT Graph\Dinics Algorithm.cpp
+INPUT .\Graph\Floyed.cpp
+INPUT .\Graph\Floyed.cpp
+INPUT Graph\Floyed.cpp
+INPUT .\Graph\Hungarian Algorithm.cpp
+INPUT .\Graph\Hungarian Algorithm.cpp
+INPUT Graph\Hungarian Algorithm.cpp
+INPUT .\Graph\SCC_Kosaraju.cpp
+INPUT .\Graph\SCC_Kosaraju.cpp
+INPUT Graph\SCC_Kosaraju.cpp
+INPUT .\Graph\SCC_Tarjan_s.cpp
+INPUT .\Graph\SCC_Tarjan_s.cpp
+INPUT Graph\SCC_Tarjan_s.cpp
+INPUT .\Graph\small to large.cpp
+INPUT .\Graph\small to large.cpp
+INPUT Graph\small to large.cpp
+INPUT .\Math\bezout_sIdentity.cpp
+INPUT .\Math\bezout_sIdentity.cpp
+INPUT Math\bezout_sIdentity.cpp
+INPUT .\Math\Fast_Power.cpp
+INPUT .\Math\Fast_Power.cpp
+INPUT Math\Fast_Power.cpp
+INPUT .\Math\MatrixExpo.cpp
+INPUT .\Math\MatrixExpo.cpp
+INPUT Math\MatrixExpo.cpp
+INPUT .\Math\Mod INV by phi.cpp
+INPUT .\Math\Mod INV by phi.cpp
+INPUT Math\Mod INV by phi.cpp
+INPUT .\Math\mod inverse for not prime.cpp
+INPUT .\Math\mod inverse for not prime.cpp
+INPUT Math\mod inverse for not prime.cpp
+INPUT .\Math\NTT.cpp
+INPUT .\Math\NTT.cpp
+INPUT Math\NTT.cpp
+INPUT .\Math\XOR Basis.cpp
+INPUT .\Math\XOR Basis.cpp
+INPUT Math\XOR Basis.cpp
+INPUT .\Number Theory\CRT.cpp
+INPUT .\Number Theory\CRT.cpp
+INPUT Number Theory\CRT.cpp
+INPUT .\Number Theory\divisors.cpp
+INPUT .\Number Theory\divisors.cpp
+INPUT Number Theory\divisors.cpp
+INPUT .\Number Theory\Euler_s_totient.cpp
+INPUT .\Number Theory\Euler_s_totient.cpp
+INPUT Number Theory\Euler_s_totient.cpp
+INPUT .\Number Theory\is_prime.cpp
+INPUT .\Number Theory\is_prime.cpp
+INPUT Number Theory\is_prime.cpp
+INPUT .\Number Theory\linearSieve.cpp
+INPUT .\Number Theory\linearSieve.cpp
+INPUT Number Theory\linearSieve.cpp
+INPUT .\Number Theory\Miller-Rabin.cpp
+INPUT .\Number Theory\Miller-Rabin.cpp
+INPUT Number Theory\Miller-Rabin.cpp
+INPUT .\Number Theory\Pollard Rho.cpp
+INPUT .\Number Theory\Pollard Rho.cpp
+INPUT Number Theory\Pollard Rho.cpp
+INPUT .\Number Theory\PrimeFactorization.cpp
+INPUT .\Number Theory\PrimeFactorization.cpp
+INPUT Number Theory\PrimeFactorization.cpp
+INPUT .\Random\random_range.cpp
+INPUT .\Random\random_range.cpp
+INPUT Random\random_range.cpp
+INPUT .\Strings\ahoCorasick.cpp
+INPUT .\Strings\ahoCorasick.cpp
+INPUT Strings\ahoCorasick.cpp
+INPUT .\Strings\compute_automaton.cpp
+INPUT .\Strings\compute_automaton.cpp
+INPUT Strings\compute_automaton.cpp
+INPUT .\Strings\Hashing.cpp
+INPUT .\Strings\Hashing.cpp
+INPUT Strings\Hashing.cpp
+INPUT .\Strings\Hashing2D.cpp
+INPUT .\Strings\Hashing2D.cpp
+INPUT Strings\Hashing2D.cpp
+INPUT .\Strings\KMP for integer.cpp
+INPUT .\Strings\KMP for integer.cpp
+INPUT Strings\KMP for integer.cpp
+INPUT .\Strings\KMP.cpp
+INPUT .\Strings\KMP.cpp
+INPUT Strings\KMP.cpp
+INPUT .\Strings\SuffixArrayWithSparseTable.cpp
+INPUT .\Strings\SuffixArrayWithSparseTable.cpp
+INPUT Strings\SuffixArrayWithSparseTable.cpp
+INPUT .\Strings\SuffixArrayWithVectorInt.cpp
+INPUT .\Strings\SuffixArrayWithVectorInt.cpp
+INPUT Strings\SuffixArrayWithVectorInt.cpp
+INPUT .\Strings\Suffux_Array.cpp
+INPUT .\Strings\Suffux_Array.cpp
+INPUT Strings\Suffux_Array.cpp
+INPUT .\Strings\Trie.cpp
+INPUT .\Strings\Trie.cpp
+INPUT Strings\Trie.cpp
+INPUT .\Strings\Trie01.cpp
+INPUT .\Strings\Trie01.cpp
+INPUT Strings\Trie01.cpp
+INPUT .\Tree\Centroid.cpp
+INPUT .\Tree\Centroid.cpp
+INPUT Tree\Centroid.cpp
+INPUT .\Tree\diameter.cpp
+INPUT .\Tree\diameter.cpp
+INPUT Tree\diameter.cpp
+INPUT .\Tree\eular_tour.cpp
+INPUT .\Tree\eular_tour.cpp
+INPUT Tree\eular_tour.cpp
+INPUT .\Tree\HLD.cpp
+INPUT .\Tree\HLD.cpp
+INPUT Tree\HLD.cpp
+INPUT .\Tree\LCA with Sparse Tables.cpp
+INPUT .\Tree\LCA with Sparse Tables.cpp
+INPUT Tree\LCA with Sparse Tables.cpp
+INPUT .\Tree\lca.cpp
+INPUT .\Tree\lca.cpp
+INPUT Tree\lca.cpp
+INPUT .\Tree\Max Query by LCA.cpp
+INPUT .\Tree\Max Query by LCA.cpp
+INPUT Tree\Max Query by LCA.cpp
+INPUT .\Tree\MO on Tree.cpp
+INPUT .\Tree\MO on Tree.cpp
+INPUT Tree\MO on Tree.cpp
+INPUT main.aux
+INPUT .\main.out
+INPUT .\main.out
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx10.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx10.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx9.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx9.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr5.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr5.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr9.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr9.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt8.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt8.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtti10.pfb
+INPUT C:\Users\ezzat\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtti10.pfb

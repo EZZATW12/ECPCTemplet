@@ -20,11 +20,12 @@ struct MergeSortTree {
         std::merge(li.ele.begin(), li.ele.end(), ri.ele.begin(), ri.ele.end(), back_inserter(parent.ele));
         return parent;
     }
+    // 1 2 3 4 5
 
     int get(int l, int r, int ni, int li, int ri, int k) {
         if (l <= li && r >= ri)
-            Seg_Data[ni].ele.size() -
-            (std::upper_bound(Seg_Data[ni].ele.begin(), Seg_Data[ni].ele.end(), k) - Seg_Data[ni].ele.begin());
+            return (Seg_Data[ni].ele.size() -
+                    (std::upper_bound(Seg_Data[ni].ele.begin(), Seg_Data[ni].ele.end(), k) - Seg_Data[ni].ele.begin()));
         if (l >= ri || r <= li)
             return 0;
         int mid = (ri + li) >> 1;
@@ -47,7 +48,6 @@ struct MergeSortTree {
         inti(v, 2 * ni + 2, mid, ri);
         Seg_Data[ni] = merge(Seg_Data[ni * 2 + 1], Seg_Data[ni * 2 + 2]);
     }
-
     void inti(vector<int> &v) {
         inti(v, 0, 0, tree_sz);
     }

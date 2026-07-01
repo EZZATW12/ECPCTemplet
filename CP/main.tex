@@ -1,0 +1,437 @@
+﻿\documentclass[10pt,twocolumn]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[
+    landscape,
+    margin=0.45in,
+    headheight=14pt,
+    headsep=0.12in,
+    footskip=0.18in
+]{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\newcommand{\TeamName}{Tom w Jerry}
+\newcommand{\UniversityName}{Monofia}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{\TeamName}}
+\fancyhead[C]{\small\UniversityName}
+\fancyhead[R]{\small ICPC TRD}
+\fancyfoot[R]{\small Page \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\columnsep}{0.20in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.4em}{}
+\titlespacing*{\section}{0pt}{4pt}{2pt}
+\titlespacing*{\subsection}{0pt}{3pt}{1pt}
+
+\definecolor{KeywordColor}{RGB}{0,70,140}
+\definecolor{StringColor}{RGB}{150,40,40}
+\definecolor{CommentColor}{RGB}{0,110,0}
+\definecolor{NumberColor}{RGB}{90,90,90}
+
+\lstdefinestyle{cpstyle}{
+    language=C++,
+    basicstyle=\ttfamily\scriptsize,
+    keywordstyle=\color{KeywordColor}\bfseries,
+    stringstyle=\color{StringColor},
+    commentstyle=\color{CommentColor}\itshape,
+    numberstyle=\tiny\color{NumberColor},
+    numbers=left,
+    numbersep=5pt,
+    stepnumber=1,
+    showstringspaces=false,
+    showtabs=false,
+    showspaces=false,
+    frame=single,
+    framerule=0.2pt,
+    rulecolor=\color{black},
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    keepspaces=true,
+    upquote=true
+}
+\lstset{style=cpstyle}
+
+% Handles folder and file names that contain spaces.
+\newcommand{\codefile}[1]{\lstinputlisting[inputencoding=utf8]{\detokenize{#1}}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{ICPC Team Reference Document}}\\
+    {\small \TeamName\ --- \UniversityName}
+\end{center}
+\vspace{0.25em}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
+\section{Clean}
+\subsection{clean}
+\codefile{Clean/clean.cpp}
+
+\subsection{geo}
+\codefile{Clean/geo.cpp}
+
+\section{Combinatorics}
+\subsection{nCr}
+\codefile{Combinatorics/nCr.cpp}
+
+\subsection{stars\_and\_bars}
+\codefile{Combinatorics/stars_and_bars.cpp}
+
+\section{Data Structures}
+\subsection{2D BIT}
+\codefile{Data Structure/2D BIT.cpp}
+
+\subsection{4D prefix sum}
+\codefile{Data Structure/4D prefix sum.cpp}
+
+\subsection{BIT}
+\codefile{Data Structure/BIT.cpp}
+
+\subsection{Coordinate Compression}
+\codefile{Data Structure/Coordinate Compression.cpp}
+
+\subsection{DSU with array sz}
+\codefile{Data Structure/DSU with array sz.cpp}
+
+\subsection{DSU}
+\codefile{Data Structure/DSU.cpp}
+
+\subsection{Dynamic Segment Tree}
+\codefile{Data Structure/Dynamic Segment Tree.cpp}
+
+\subsection{Lazy Segment Tree}
+\codefile{Data Structure/Lazy Segment Tree.cpp}
+
+\subsection{Max Sum in Subarray With update}
+\codefile{Data Structure/Max Sum in Subarray With update.cpp}
+
+\subsection{Merge Sort Tree With update}
+\codefile{Data Structure/Merge Sort Tree With update.cpp}
+
+\subsection{Merge sort tree}
+\codefile{Data Structure/Merge sort tree.cpp}
+
+\subsection{MO}
+\codefile{Data Structure/MO.cpp}
+
+\subsection{Monotonic Queue}
+\codefile{Data Structure/Monotonic Queue.cpp}
+
+\subsection{Monotonic Stack}
+\codefile{Data Structure/Monotonic Stack.cpp}
+
+\subsection{Order Set}
+\codefile{Data Structure/Order Set.cpp}
+
+\subsection{Palindromic Tree Persistent}
+\codefile{Data Structure/Palindromic Tree Persistent.cpp}
+
+\subsection{Persistent Trie}
+\codefile{Data Structure/Persistent Trie.cpp}
+
+\subsection{Segment Tree Beats}
+\codefile{Data Structure/Segment Tree Beats.cpp}
+
+\subsection{Segment Tree}
+\codefile{Data Structure/Segment Tree.cpp}
+
+\subsection{Segtree Tree Iterative}
+\codefile{Data Structure/Segtree Tree Iterative.cpp}
+
+\subsection{Sparse Segment Tree}
+\codefile{Data Structure/Sparse Segment Tree.cpp}
+
+\subsection{Sparse\_Table}
+\codefile{Data Structure/Sparse_Table.cpp}
+
+\subsection{SQRT}
+\codefile{Data Structure/SQRT.cpp}
+
+\subsection{Treap persistent}
+\codefile{Data Structure/Treap persistent.cpp}
+
+\section{DP Optimizations}
+\subsection{Convex Hull Trick}
+\codefile{DP Optimization/Convex Hull Trick.cpp}
+
+\section{Fast}
+\subsection{dp bitset}
+\codefile{fast/dp bitset.cpp}
+
+\section{Geometry}
+\subsection{Angle Between Vectors}
+\codefile{Geometry/Angle Between Vectors.cpp}
+
+\subsection{Area of Polygon}
+\codefile{Geometry/Area of Polygon.cpp}
+
+\subsection{Area of Triangle}
+\codefile{Geometry/Area of Triangle.cpp}
+
+\subsection{Bisector}
+\codefile{Geometry/Bisector.cpp}
+
+\subsection{Center Circle Pass 3 points}
+\codefile{Geometry/Center Circle Pass 3 points.cpp}
+
+\subsection{Check if polygon is rectangle and Square}
+\codefile{Geometry/Check if polygon is rectangle and Square.cpp}
+
+\subsection{Dist Between 2 Segment}
+\codefile{Geometry/Dist Between 2 Segment.cpp}
+
+\subsection{Dist from point to line}
+\codefile{Geometry/Dist from point to line.cpp}
+
+\subsection{Dist from point to seg}
+\codefile{Geometry/Dist from point to seg.cpp}
+
+\subsection{Distance between 2 polygons}
+\codefile{Geometry/Distance between 2 polygons.cpp}
+
+\subsection{Distance between rays}
+\codefile{Geometry/Distance between rays.cpp}
+
+\subsection{Equation Line by point and vector}
+\codefile{Geometry/Equation Line by point and vector.cpp}
+
+\subsection{Equation Line passing through 2 points}
+\codefile{Geometry/Equation Line passing through 2 points.cpp}
+
+\subsection{Finding common tangents to two circles}
+\codefile{Geometry/Finding common tangents to two circles.cpp}
+
+\subsection{Intersec Between 2 line}
+\codefile{Geometry/Intersec Between 2 line.cpp}
+
+\subsection{Intersection between 2 Circle}
+\codefile{Geometry/Intersection between 2 Circle.cpp}
+
+\subsection{Intersection Between Circle and Line}
+\codefile{Geometry/Intersection Between Circle and Line.cpp}
+
+\subsection{Intersection between line and segment}
+\codefile{Geometry/Intersection between line and segment.cpp}
+
+\subsection{Intersection between two segments}
+\codefile{Geometry/Intersection between two segments.cpp}
+
+\subsection{Is 2 points on same side of line}
+\codefile{Geometry/Is 2 points on same side of line.cpp}
+
+\subsection{Is 2 Segment Intersect}
+\codefile{Geometry/Is 2 Segment Intersect.cpp}
+
+\subsection{Is point on segment}
+\codefile{Geometry/Is point on segment.cpp}
+
+\subsection{Is the point on line}
+\codefile{Geometry/Is the point on line.cpp}
+
+\subsection{Is the point on ray}
+\codefile{Geometry/Is the point on ray.cpp}
+
+\subsection{Lattice Points}
+\codefile{Geometry/Lattice Points.cpp}
+
+\subsection{Length of the union of segments}
+\codefile{Geometry/Length of the union of segments.cpp}
+
+\subsection{Location of Point in line}
+\codefile{Geometry/Location of Point in line.cpp}
+
+\subsection{MEC}
+\codefile{Geometry/MEC.cpp}
+
+\subsection{Minkowski sum of convex polygons}
+\codefile{Geometry/Minkowski sum of convex polygons.cpp}
+
+\subsection{Point Location Relative to Polygon}
+\codefile{Geometry/Point Location Relative to Polygon.cpp}
+
+\subsection{Polar Angle}
+\codefile{Geometry/Polar Angle.cpp}
+
+\subsection{Polar Sort}
+\codefile{Geometry/Polar Sort.cpp}
+
+\subsection{struct line}
+\codefile{Geometry/struct line.cpp}
+
+\subsection{type of intersection between Circle and Line}
+\codefile{Geometry/type of intersection between Circle and Line.cpp}
+
+\subsection{vector length}
+\codefile{Geometry/vector length.cpp}
+
+\subsection{winding Number}
+\codefile{Geometry/winding Number.cpp}
+
+\subsection{WindingNumber for Integers}
+\codefile{Geometry/WindingNumber for Integers.cpp}
+
+\section{Graph Algorithms}
+\subsection{articulation\_points}
+\codefile{Graph/articulation_points.cpp}
+
+\subsection{BCC}
+\codefile{Graph/BCC.cpp}
+
+\subsection{Bellman-Ford}
+\codefile{Graph/Bellman-Ford.cpp}
+
+\subsection{Bridges}
+\codefile{Graph/Bridges.cpp}
+
+\subsection{Bron–Kerbosch}
+\codefile{Graph/Bron–Kerbosch.cpp}
+
+\subsection{Dinics Algorithm}
+\codefile{Graph/Dinics Algorithm.cpp}
+
+\subsection{Floyed}
+\codefile{Graph/Floyed.cpp}
+
+\subsection{Hungarian Algorithm}
+\codefile{Graph/Hungarian Algorithm.cpp}
+
+\subsection{SCC\_Kosaraju}
+\codefile{Graph/SCC_Kosaraju.cpp}
+
+\subsection{SCC\_Tarjan\_s}
+\codefile{Graph/SCC_Tarjan_s.cpp}
+
+\subsection{small to large}
+\codefile{Graph/small to large.cpp}
+
+\section{Math}
+\subsection{bezout\_sIdentity}
+\codefile{Math/bezout_sIdentity.cpp}
+
+\subsection{Fast\_Power}
+\codefile{Math/Fast_Power.cpp}
+
+\subsection{MatrixExpo}
+\codefile{Math/MatrixExpo.cpp}
+
+\subsection{Mod INV by phi}
+\codefile{Math/Mod INV by phi.cpp}
+
+\subsection{mod inverse for not prime}
+\codefile{Math/mod inverse for not prime.cpp}
+
+\subsection{NTT}
+\codefile{Math/NTT.cpp}
+
+\subsection{XOR Basis}
+\codefile{Math/XOR Basis.cpp}
+
+\section{Number Theory}
+\subsection{CRT}
+\codefile{Number Theory/CRT.cpp}
+
+\subsection{divisors}
+\codefile{Number Theory/divisors.cpp}
+
+\subsection{Euler\_s\_totient}
+\codefile{Number Theory/Euler_s_totient.cpp}
+
+\subsection{is\_prime}
+\codefile{Number Theory/is_prime.cpp}
+
+\subsection{linearSieve}
+\codefile{Number Theory/linearSieve.cpp}
+
+\subsection{Miller-Rabin}
+\codefile{Number Theory/Miller-Rabin.cpp}
+
+\subsection{Pollard Rho}
+\codefile{Number Theory/Pollard Rho.cpp}
+
+\subsection{PrimeFactorization}
+\codefile{Number Theory/PrimeFactorization.cpp}
+
+\section{Random}
+\subsection{random\_range}
+\codefile{Random/random_range.cpp}
+
+\section{String Algorithms}
+\subsection{ahoCorasick}
+\codefile{Strings/ahoCorasick.cpp}
+
+\subsection{compute\_automaton}
+\codefile{Strings/compute_automaton.cpp}
+
+\subsection{Hashing}
+\codefile{Strings/Hashing.cpp}
+
+\subsection{Hashing2D}
+\codefile{Strings/Hashing2D.cpp}
+
+\subsection{KMP for integer}
+\codefile{Strings/KMP for integer.cpp}
+
+\subsection{KMP}
+\codefile{Strings/KMP.cpp}
+
+\subsection{SuffixArrayWithSparseTable}
+\codefile{Strings/SuffixArrayWithSparseTable.cpp}
+
+\subsection{SuffixArrayWithVectorInt}
+\codefile{Strings/SuffixArrayWithVectorInt.cpp}
+
+\subsection{Suffux\_Array}
+\codefile{Strings/Suffux_Array.cpp}
+
+\subsection{Trie}
+\codefile{Strings/Trie.cpp}
+
+\subsection{Trie01}
+\codefile{Strings/Trie01.cpp}
+
+\section{Trees}
+\subsection{Centroid}
+\codefile{Tree/Centroid.cpp}
+
+\subsection{diameter}
+\codefile{Tree/diameter.cpp}
+
+\subsection{eular\_tour}
+\codefile{Tree/eular_tour.cpp}
+
+\subsection{HLD}
+\codefile{Tree/HLD.cpp}
+
+\subsection{LCA with Sparse Tables}
+\codefile{Tree/LCA with Sparse Tables.cpp}
+
+\subsection{lca}
+\codefile{Tree/lca.cpp}
+
+\subsection{Max Query by LCA}
+\codefile{Tree/Max Query by LCA.cpp}
+
+\subsection{MO on Tree}
+\codefile{Tree/MO on Tree.cpp}
+
+\end{document}
+

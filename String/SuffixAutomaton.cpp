@@ -1,49 +1,47 @@
-const int M = 26, N = 1000005;
+#include <bits/stdc++.h>
 
-struct suffixAutomaton {
-    struct state {
-        int len;        // length of longest string in this class
-        int link;        // pointer to suffix link
-        int next[M];    // adjacency list
-        ll cnt;    // number of times the strings in this state occur in the original string
+using namespace std;
 
-        bool terminal;    // by default, empty string is a suffix
-        // a state is terminal if it corresponds to a suffix
+// Suffix Automaton (SAM) - God Mode Black Box
+// Build Time: O(N)
+// Memory: O(N * ALPHABET)
+template<int ALPHABET = 26, char OFFSET = 'a'>
+struct SuffixAutomaton {
+    struct State {
+        int len;              // Length of longest string in this class
+        int link;             // Suffix link
+        long long cnt;        // Occurrences in original string
+        long long paths;      // Distinct paths in DAG from this state (for K-th substring)
+        int first_pos;        // 0-indexed end position of first occurrence
+        bool terminal;        // True if suffix of original string
+        array<int, ALPHABET> next;
 
-        state() {
-            len = 0, link = -1, cnt = 0;
-            terminal = false;
-            for (int i = 0; i < M; i++)
-                next[i] = -1;
+        State() : len(0), link(-1), cnt(0), paths(0), first_pos(-1), terminal(false) {
+            next.fill(-1);
         }
     };
 
-    vector<state> st;
-    int sz, last, l;
-    char offset = 'a';    // Careful!
+    vector<State> st;
+    int sz, last;
 
-    suffixAutomaton(string &s) {
+    SuffixAutomaton(const string &s) {
+        int n = s.length();
+        st.resize(max(2, 2 * n));
+        sz = 1;
+        last = 0;
 
-        l = s.length();
-        st.resize(2 * l);
-        for (int i = 0; i < 2 * l; i++)
-            st[i] = state();
+        for (char c: s) add_char(c - OFFSET);
 
-        sz = 1, last = 0;
-        st[0].len = 0;
-        st[0].link = -1;
+        for (int p = last; p != -1; p = st[p].link) st[p].terminal = true;
 
-        for (int i = 0; i < l; i++)
-            addChar(s[i] - offset);
-
-        for (int i = last; i != -1; i = st[i].link)
-            st[i].terminal = true;
+        preprocess_topology(n);
     }
 
-    void addChar(int c) {
+private:
+    void add_char(int c) {
         int cur = sz++;
-        assert(cur < N * 2);
         st[cur].len = st[last].len + 1;
+        st[cur].first_pos = st[cur].len - 1;
         st[cur].cnt = 1;
 
         int p = last;
@@ -60,21 +58,19 @@ struct suffixAutomaton {
         }
 
         int q = st[p].next[c];
-
         if (st[q].len == st[p].len + 1) {
             st[cur].link = q;
             return;
         }
 
         int clone = sz++;
-
-        for (int i = 0; i < M; i++)
-            st[clone].next[i] = st[q].next[i];
-        st[clone].link = st[q].link;
         st[clone].len = st[p].len + 1;
-        st[clone].cnt = 0;                // cloned states initially have cnt = 0
+        st[clone].next = st[q].next;
+        st[clone].link = st[q].link;
+        st[clone].first_pos = st[q].first_pos; // Clone inherits first occurrence
+        st[clone].cnt = 0;
 
-        while (p != -1 and st[p].next[c] == q) {
+        while (p != -1 && st[p].next[c] == q) {
             st[p].next[c] = clone;
             p = st[p].link;
         }
@@ -82,58 +78,117 @@ struct suffixAutomaton {
         st[q].link = st[cur].link = clone;
     }
 
-    bool contains(string &t) {
-        int cur = 0;
-        for (int i = 0; i < t.length(); i++) {
-            cur = st[cur].next[t[i] - offset];
-            if (cur == -1)
-                return false;
+    void preprocess_topology(int n) {
+        // O(N) Topological sort by length using Counting Sort
+        vector<int> order(sz);
+        vector<int> count(n + 1, 0);
+        for (int i = 0; i < sz; i++) count[st[i].len]++;
+        for (int i = 1; i <= n; i++) count[i] += count[i - 1];
+        for (int i = sz - 1; i >= 0; i--) order[--count[st[i].len]] = i;
+
+        // 1. Calculate occurrences using Suffix Link Tree (bottom-up)
+        for (int i = sz - 1; i > 0; i--) {
+            int u = order[i];
+            st[st[u].link].cnt += st[u].cnt;
         }
-        return true;
-    }
 
-    // alternatively, compute the number of paths in a DAG
-    // since each substring corresponds to one unique path in SA
-    ll numberOfSubstrings() {
-        ll res = 0;
-        for (int i = 1; i < sz; i++)
-            res += st[i].len - st[st[i].link].len;
-        return res;
-    }
-
-    void numberOfOccPreprocess() {
-        vector<pii> v;
-        for (int i = 1; i < sz; i++)
-            v.emplace_back(st[i].len, i);
-
-        sort(v.begin(), v.end(), greater<>());
-
-        for (int i = 0; i < sz - 1; i++) {
-            int suf = st[v[i].second].link;
-            st[suf].cnt += st[v[i].second].cnt;
+        // 2. Calculate paths using DAG transitions (bottom-up)
+        for (int i = sz - 1; i >= 0; i--) {
+            int u = order[i];
+            st[u].paths = 1; // 1 for the path stopping exactly at this state
+            for (int c = 0; c < ALPHABET; c++) {
+                if (st[u].next[c] != -1) {
+                    st[u].paths += st[st[u].next[c]].paths;
+                }
+            }
         }
     }
 
-    ll numberOfOcc(string &t) {
+public:
+    // --- APPLICATION 1: Substring Checks ---
+    // O(|T|) - Exact occurrences
+    long long count_occurrences(const string &t) {
         int cur = 0;
-        for (int i = 0; i < t.length(); i++) {
-            cur = st[cur].next[t[i] - offset];
-            if (cur == -1)
-                return 0;
+        for (char c: t) {
+            cur = st[cur].next[c - OFFSET];
+            if (cur == -1) return 0;
         }
         return st[cur].cnt;
     }
 
-    ll totLenSubstrings() {
-        // different Substrings
-        ll tot = 0;
-        for (int i = 1; i < sz; i++) {
-            ll shortest = st[st[i].link].len + 1;
-            ll longest = st[i].len;
-            ll num_strings = longest - shortest + 1;
-            ll cur = num_strings * (longest + shortest) / 2;
-            tot += cur;
+    // --- APPLICATION 2: First Occurrence Index ---
+    // O(|T|) - Returns 0-indexed start position of first match, or -1
+    int get_first_occurrence(const string &t) {
+        int cur = 0;
+        for (char c: t) {
+            cur = st[cur].next[c - OFFSET];
+            if (cur == -1) return -1;
         }
-        return tot;
-    }   
+        return st[cur].first_pos - t.length() + 1;
+    }
+
+    // --- APPLICATION 3: Longest Common Substring (LCS) ---
+    // O(|T|) - Finds the longest substring common between 's' and a new string 't'
+    string longest_common_substring(const string &t) {
+        int v = 0, l = 0, best_len = 0, best_pos = 0;
+        for (int i = 0; i < t.length(); i++) {
+            int c = t[i] - OFFSET;
+            while (v > 0 && st[v].next[c] == -1) {
+                v = st[v].link;
+                l = st[v].len;
+            }
+            if (st[v].next[c] != -1) {
+                v = st[v].next[c];
+                l++;
+            }
+            if (l > best_len) {
+                best_len = l;
+                best_pos = i;
+            }
+        }
+        if (best_len == 0) return "";
+        return t.substr(best_pos - best_len + 1, best_len);
+    }
+
+    // --- APPLICATION 4: Lexicographically K-th  Substring ---
+    // --- Lexicographically K-th Substring ---
+    // is_distinct = true  -> ignores duplicate occurrences (T = 0)
+    // is_distinct = false -> counts all occurrences (T = 1)
+    string kth_substring(long long k, bool is_distinct = true) {
+        // Total valid substrings from root (excluding empty string)
+        long long total = is_distinct ? st[0].paths_distinct - 1 : st[0].paths_all - st[0].cnt;
+        if (k > total || k <= 0) return "";
+
+        string res = "";
+        int cur = 0;
+
+        while (k > 0) {
+            for (int c = 0; c < ALPHABET; c++) {
+                int nxt = st[cur].next[c];
+                if (nxt != -1) {
+                    long long branches = is_distinct ? st[nxt].paths_distinct : st[nxt].paths_all;
+
+                    if (k <= branches) {
+                        res += (char) (c + OFFSET);
+                        // Consume the strings that stop exactly at state 'nxt'
+                        long long consume = is_distinct ? 1 : st[nxt].cnt;
+                        k -= consume;
+                        cur = nxt;
+                        break;
+                    } else {
+                        // Skip all strings starting with this character
+                        k -= branches;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+
+    // --- APPLICATION 5: Distinct Substring Math ---
+    // O(1) - Total distinct substrings
+    long long count_distinct_substrings() {
+        return st[0].paths - 1; // Subtract 1 to exclude the empty string
+    }
 };

@@ -14,9 +14,7 @@ struct SuffixArray {
         s.pop_back();
     }
 
-    void radix_sort(vector<pair<pair < int, int>, int>
-
-    > &a) {
+    void radix_sort(vector<pair<pair < int, int>, int>> &a) {
         int n = a.size();
         {
             vector<int> cnt(n);

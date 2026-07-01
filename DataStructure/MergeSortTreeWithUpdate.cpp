@@ -20,8 +20,8 @@ struct MergeSortTreeUpdate {
 
     Node merge(Node &li, Node &ri) {
         Node parent = Node();
-        for (auto i: li.ele)parent.ele.insert(i);
         for (auto i: ri.ele)parent.ele.insert(i);
+        for (auto i: li.ele)parent.ele.insert(i);
         return parent;
     }
 
@@ -32,7 +32,7 @@ struct MergeSortTreeUpdate {
         int mid = (ri + li) >> 1;
         int lnode = get(l, r, ni * 2 + 1, li, mid, k);
         int rnode = get(l, r, ni * 2 + 2, mid, ri, k);
-        return 1;// todo
+        return lnode + rnode;// todo
     }
 
     void update(int ni, int li, int ri, int pos, int last_val, int new_val) {

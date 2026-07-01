@@ -1,13 +1,19 @@
 #include<bits/stdc++.h>
+
 using namespace std;
+
 struct primaryTesting {
     vector<bool> prime;
     const int MX = 1e6 + 16;
+
     static long long power(long long b, long long p, long long mod) {
         long long res;
-        for (res = 1; p; p >>= 1, b = ((__int128_t(b % mod) * (b % mod)) % mod + mod) % mod) if (p & 1) res = __int128_t(res) * b % mod;
+        for (res = 1; p; p >>= 1, b = ((__int128_t(b % mod) * (b % mod)) % mod + mod) % mod)
+            if (p & 1)
+                res = __int128_t(res) * b % mod;
         return res;
     }
+
     primaryTesting() {
         prime.assign(MX, true);
         prime[0] = prime[1] = false;
@@ -16,6 +22,7 @@ struct primaryTesting {
                 for (long long j = i * i; j < MX; j += i)
                     prime[j] = false;
     }
+
     bool check(long long n, long long a, long long d, long long s) {
         long long x = power(a, d, n);
         if (x == 1 || x == n - 1) return false;
@@ -25,6 +32,7 @@ struct primaryTesting {
         }
         return true;
     }
+
     bool isPrime(long long n) {
         if (n & 1 ^ 1) return (n == 2);
         if (n < MX) return prime[n];
@@ -34,6 +42,7 @@ struct primaryTesting {
         return true;
     }
 } pt;
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);

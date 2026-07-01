@@ -1,129 +1,176 @@
-//
-// Created by Ezzat on 7/26/2025.
-//
 #include <bits/stdc++.h>
 
 using namespace std;
-#define ll long long
-const int N = 4e5 + 10, lg = 20;
-int ntoi[N], iton[N], dep[N], tin[N], tout[N], dfsorder[N], qlca[N], ans[N], val[N], idx, timer, frq[N], frq_blk[N];
-vector<int> adj[N];
-int LG[N], spr[lg][N];
-bool isinside[N];
 
-void dfs(int u, int p, int d) {
-    dep[idx] = d;
-    iton[ntoi[u] = idx++] = u;
-    dfsorder[tin[u] = timer++] = u;
-    for (auto v: adj[u]) {
-        if (v == p)continue;
-        dfs(v, u, d + 1);
-        dep[idx] = d;
-        iton[idx++] = u;
-    }
-    dfsorder[tout[u] = timer++] = u;
-}
+// 1. Define Block Size globally so the Query struct can access it
+int B;
 
-void build() {
-    LG[0] = -1;
-    for (int i = 0; i < idx; ++i) {
-        LG[i + 1] = LG[i] + !(i & (i + 1));
-        spr[0][i] = i;
+struct MoQuery {
+    int l, r, lca, id;
+
+    // LGM Optimization: Odd/Even Block Sorting
+    // This reverses the right-pointer direction in alternate blocks,
+    // reducing the total movement of the 'r' pointer by ~50%.
+    bool operator<(const MoQuery &other) const {
+        if (l / B != other.l / B) return l / B < other.l / B;
+        return ((l / B) & 1) ? r < other.r : r > other.r;
     }
-    for (int j = 1; (1 << j) <= idx; ++j) {
-        for (int i = 0; i + (1 << j) <= idx; ++i) {
-            int a = spr[j - 1][i];
-            int b = spr[j - 1][i + (1 << (j - 1))];
-            spr[j][i] = dep[a] < dep[b] ? a : b;
+};
+
+// 2. The Black Box: Flattens the tree and generates 1D Mo Queries
+struct TreeMoFlattener {
+    int n, timer, LOG;
+    vector<vector<int>> adj;
+    vector<int> tin, tout, euler_tour, depth;
+    vector<vector<int>> up;
+
+    TreeMoFlattener(int _n) : n(_n), timer(1), adj(_n + 1), tin(_n + 1),
+                              tout(_n + 1), depth(_n + 1) {
+        LOG = __lg(n) + 2;
+        up.assign(n + 1, vector<int>(LOG, 0));
+        euler_tour.reserve(2 * n + 1);
+        euler_tour.push_back(0); // 1-based indexing for the flat array
+    }
+
+    void add_edge(int u, int v) {
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    // Call this after adding all edges
+    void build(int root = 1) {
+        dfs(root, 0, 0);
+    }
+
+    // O(log N) LCA via Binary Lifting
+    int get_lca(int u, int v) {
+        if (depth[u] < depth[v]) swap(u, v);
+        int diff = depth[u] - depth[v];
+        for (int i = 0; i < LOG; i++) {
+            if ((diff >> i) & 1) u = up[u][i];
+        }
+        if (u == v) return u;
+        for (int i = LOG - 1; i >= 0; i--) {
+            if (up[u][i] != up[v][i]) {
+                u = up[u][i];
+                v = up[v][i];
+            }
+        }
+        return up[u][0];
+    }
+
+    // Safely converts a Tree Query into a 1D Array Query
+    MoQuery get_query(int u, int v, int id) {
+        if (tin[u] > tin[v]) swap(u, v);
+        int lca = get_lca(u, v);
+
+        // Case 1: 'u' is an ancestor of 'v'. LCA is already inside [tin[u], tin[v]]
+        if (lca == u) {
+            return {tin[u], tin[v], 0, id};
+        }
+            // Case 2: 'u' and 'v' are on different branches.
+            // We query [tout[u], tin[v]] and must manually process the LCA later.
+        else {
+            return {tout[u], tin[v], lca, id};
         }
     }
-}
 
-int query(int l, int r) {
-    int len = (r - l + 1);
-    int x = LG[len];
-    int a = spr[x][l];
-    int b = spr[x][r - (1 << x) + 1];
-    return dep[a] < dep[b] ? a : b;
-}
-
-
-int lca(int u, int v) {
-    u = ntoi[u], v = ntoi[v];
-    if (u > v)swap(u, v);
-    return iton[query(u, v)];
-}
+private:
+    void dfs(int u, int p, int d) {
+        tin[u] = timer++;
+        euler_tour.push_back(u);
+        depth[u] = d;
+        up[u][0] = p;
+        for (int i = 1; i < LOG; i++) {
+            up[u][i] = up[up[u][i - 1]][i - 1];
+        }
+        for (int v: adj[u]) {
+            if (v != p) dfs(v, u, d + 1);
+        }
+        tout[u] = timer++;
+        euler_tour.push_back(u);
+    }
+};
 
 void code() {
-    int q, n;
+    int n, q;
     cin >> n >> q;
+    // 1. Read values and coordinate compress (if needed)
+    vector<int> val(n + 1);
     vector<int> elm;
     for (int i = 1; i <= n; ++i) {
         cin >> val[i];
         elm.push_back(val[i]);
     }
-    std::sort(elm.begin(), elm.end());
-    elm.erase(std::unique(elm.begin(), elm.end()), elm.end());
+    sort(elm.begin(), elm.end());
+    elm.erase(unique(elm.begin(), elm.end()), elm.end());
     for (int i = 1; i <= n; ++i) {
-        val[i] = std::lower_bound(elm.begin(), elm.end(), val[i]) - elm.begin();
+        val[i] = lower_bound(elm.begin(), elm.end(), val[i]) - elm.begin();
     }
+
+    // 2. Build the Tree Flattener
+    TreeMoFlattener tree(n);
     for (int i = 1; i < n; i++) {
         int u, v;
         cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+        tree.add_edge(u, v);
     }
-    dfs(1, -1, 0);
-    build();
-    vector<array<int, 4>> Q(q);
+    tree.build(1);
+
+    // 3. Setup Mo's Queries
+    // B = max(1, N / sqrt(Q)) is mathematically optimal for Mo's
+    B = max(1, (int) (2 * n / sqrt(max(1, q))));
+    vector<MoQuery> queries(q);
+
     for (int i = 0; i < q; i++) {
-        auto &[l, r, k, Idx] = Q[i];
-        int u, v;
-        cin >> u >> v >> k;
-        if (tin[u] > tin[v])swap(u, v);
-        qlca[i] = lca(u, v);
-        if (qlca[i] == u) {
-            l = tin[u] + 1;
-            r = tin[v];
-        } else {
-            l = tout[u];
-            r = tin[v];
-        }
-        Idx = i;
+        int u, v; // Not reading 'k' assuming it was specific to your original problem
+        cin >> u >> v;
+        queries[i] = tree.get_query(u, v, i);
     }
-    int sq = sqrt(N) + 5;
-    sort(Q.begin(), Q.end(), [&](array<int, 4> a, array<int, 4> b) {
-        return make_pair(a[0] / sq, a[1]) < make_pair(b[0] / sq, b[1]);
-    });
-    int l = 0, r = -1;
+    sort(queries.begin(), queries.end());
+
+    // 4. Mo's Algorithm State
+    vector<int> ans(q);
+    vector<bool> in_path(n + 1, false); // Tracks if a node is currently active
+    // vector<int> frq(elm.size() + 1, 0); // Example frequency array
+    // int current_ans = 0;
+
     auto add = [&](int node) {
-        // todo
+        // int v = val[node];
+        // e.g., if (++frq[v] == 1) current_ans++;
     };
     auto remove = [&](int node) {
-        // todo
+        // int v = val[node];
+        // e.g., if (--frq[v] == 0) current_ans--;
     };
-    auto query = [&](int k) {
 
-    };
+    // Core logic: If we see a node twice (enter and exit), it's not on the path!
     auto toggle = [&](int node) {
-        if (isinside[node]) {
-            remove(node);
-        } else {
-            add(node);
-        }
-        isinside[node] ^= 1;
+        if (in_path[node]) remove(node);
+        else add(node);
+        in_path[node] = !in_path[node];
     };
-    for (auto [L, R, k, Idx]: Q) {
-        while (l > L)toggle(dfsorder[--l]);
-        while (r < R)toggle(dfsorder[++r]);
-        while (l < L)toggle(dfsorder[l++]);
-        while (r > R)toggle(dfsorder[r--]);
-        toggle(dfsorder[tin[qlca[Idx]]]);
-        // query the ans here
-        toggle(dfsorder[tin[qlca[Idx]]]);
+
+    // 5. Run Mo's
+    int L = 1, R = 0;
+    for (const auto &Q: queries) {
+        while (L > Q.l) toggle(tree.euler_tour[--L]);
+        while (R < Q.r) toggle(tree.euler_tour[++R]);
+        while (L < Q.l) toggle(tree.euler_tour[L++]);
+        while (R > Q.r) toggle(tree.euler_tour[R--]);
+
+        // Manually toggle LCA if 'u' and 'v' are on different branches
+        if (Q.lca != 0) toggle(Q.lca);
+
+        // Record Answer
+        // ans[Q.id] = current_ans;
+
+        // Untoggle LCA immediately to restore state for the next query
+        if (Q.lca != 0) toggle(Q.lca);
     }
+
     for (int i = 0; i < q; ++i) {
-        cout << elm[ans[i]] << '\n';
+        cout << ans[i] << '\n'; // Replace with elm[ans[i]] if you need the original value
     }
 
 }

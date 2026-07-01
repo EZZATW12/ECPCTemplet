@@ -134,7 +134,23 @@ struct line {
         v = q - p;
         c = cross(v, p);
     }
+    void normalize() {
+        // 1. Reduce by GCD
+        long long g = std::gcd(std::abs(dx), std::abs(dy));
+        if (g != 0) {
+            dx /= g;
+            dy /= g;
+            c /= g;
+        }
 
+        // 2. Standardize sign orientation
+        // Force dx > 0. If it's a vertical line (dx == 0), force dy > 0.
+        if (dx < 0 || (dx == 0 && dy < 0)) {
+            dx = -dx;
+            dy = -dy;
+            c = -c;
+        }
+    }
     T side(pt p) {
         return cross(v, p) - c;
     }
@@ -307,8 +323,71 @@ bool sameLine(const line &L1, const line &L2) {
     return true;
 }
 
-}
+void sort_ccw(vector<pt> &v) {
+    pt center(0, 0);
+    for (auto p: v) {
+        center += p;
+    }
+    center /= (int) v.size();
 
+    sort(v.begin(), v.end(), [&](pt a, pt b) {
+        T ang1 = atan2l(a.y - center.y, a.x - center.x);
+        T ang2 = atan2l(b.y - center.y, b.x - center.x);
+        return ang1 < ang2;
+    });
+}
+// O(log)
+bool inConverx(vector<pt> &p, pt t) {
+    if (p.size() < 3)return {};
+    int l = 1, r = p.size() - 2, mid, ans = 1;
+    while (l <= r) {
+        mid = (l + r) / 2;
+        if (sgn(orient(p[0], p[mid], t)) == 1) {
+            l = mid + 1;
+            ans = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return inPolygon({p[0], p[ans], p[ans + 1]}, t);
+}
+// Returns 1 (IN), 0 (ON), -1 (OUT)
+int pointInConvex(const vector<pt>& p, pt t) {
+    int n = p.size();
+    if (n < 3) return -1;
+
+    // 1. Check if the point is completely outside the polygon's angular sweep
+    // Assuming the polygon is given in strictly Counter-Clockwise (CCW) order
+    if (orient(p[0], p[1], t) < 0 || orient(p[0], p[n - 1], t) > 0) {
+        return -1; // OUT
+    }
+
+    // 2. Check if it lies exactly on the two extreme boundary edges
+    if (onSegment(p[0], p[1], t) || onSegment(p[0], p[n - 1], t)) {
+        return 0; // ON
+    }
+
+    // 3. Binary search to find which angular wedge the point falls into
+    int l = 1, r = n - 2, ans = 1;
+    while (l <= r) {
+        int mid = l + (r - l) / 2;
+        // If t is to the left of or exactly on the line p[0]->p[mid]
+        if (orient(p[0], p[mid], t) >= 0) {
+            ans = mid;
+            l = mid + 1;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    // 4. Now t is wedged between p[0]->p[ans] and p[0]->p[ans+1].
+    // We just need to check its position relative to the polygon's outer edge: p[ans]->p[ans+1].
+    T o = orient(p[ans], p[ans + 1], t);
+
+    if (o > 0) return 1; // Strictly IN (left of the outer edge)
+    if (o == 0 && onSegment(p[ans], p[ans + 1], t)) return 0; // Exactly ON the outer edge
+    return -1; // OUT (it fell outside the outer edge)
+}
 int main() {
 
 

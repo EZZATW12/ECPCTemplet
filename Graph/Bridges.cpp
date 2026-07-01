@@ -1,59 +1,77 @@
-//
-// Created by Ezzat on 6/22/2025.
-//
-int T, low[N], dis[N], art[N], ids[N], id;
-vector <pair<int, int>> g[N], edges;
-vector<int> acy[N];
-bool is_bridge[N], vis[N];
+#include <bits/stdc++.h>
 
-void bridges(int u, int p) {
-    low[u] = dis[u] = ++T;
-    for (auto [v, i]: g[u]) {
-        if (!dis[v]) {
-            bridges(v, u);
-            low[u] = min(low[u], low[v]);
-            if (low[v] > dis[u]) {
-                is_bridge[i] = 1;
-            }
-        } else if (v != p) {
-            low[u] = min(low[u], dis[v]);
-        }
-    }
-}
+using namespace std;
 
-void dfs(int u) {
-    vis[u] = true;
-    ids[u] = id;
-    for (auto [v, i]: g[u]) {
-        if (!vis[v] and !is_bridge[i]) {
-            dfs(v);
-        }
-    }
-}
+// Condenses a graph into a Bridge Tree (Block-Forest of 2-Edge-Connected Components)
+struct BridgeTree {
+    int n, timer, num_comps;
+    vector<vector<pair<int, int>>> adj; // {v, edge_index}
+    vector<pair<int, int>> edges;
 
-void BuildTree() {
-    for (int i = 1; i <= m; ++i) {
-        int u, v;
-        cin >> u >> v;
-        g[u].push_back({v, i});
-        g[v].push_back({u, i});
+    vector<int> tin, low, comp;
+    vector<bool> is_bridge;
+    vector<vector<int>> tree; // The resulting bridge tree/forest
+
+    // Initialize with number of vertices (0-indexed)
+    BridgeTree(int _n) : n(_n), timer(0), num_comps(0),
+                         adj(n), tin(n, -1), low(n, -1), comp(n, -1) {}
+
+    void add_edge(int u, int v) {
+        int idx = edges.size();
+        adj[u].push_back({v, idx});
+        adj[v].push_back({u, idx});
         edges.push_back({u, v});
+        is_bridge.push_back(false);
     }
-    for (int i = 1; i <= n; ++i) {
-        if (!dis[i]) {
-            bridges(i, 0);
+
+    void dfs_bridges(int u, int p_edge = -1) {
+        tin[u] = low[u] = ++timer;
+        for (auto [v, id]: adj[u]) {
+            if (id == p_edge) continue;
+            if (tin[v] != -1) {
+                low[u] = min(low[u], tin[v]);
+            } else {
+                dfs_bridges(v, id);
+                low[u] = min(low[u], low[v]);
+                if (low[v] > tin[u]) {
+                    is_bridge[id] = true;
+                }
+            }
         }
     }
-    for (int i = 1; i <= n; ++i) {
-        if (!vis[i]) {
-            ++id;
-            dfs(i);
+
+    void dfs_comps(int u) {
+        comp[u] = num_comps;
+        for (auto [v, id]: adj[u]) {
+            // Only traverse unvisited nodes across non-bridge edges
+            if (comp[v] == -1 && !is_bridge[id]) {
+                dfs_comps(v);
+            }
         }
     }
-    for (int i = 1; i <= m; ++i) {
-        if (is_bridge[i]) {
-            acy[ids[edges[i].first]].push_back(ids[edges[i].second]);
-            acy[ids[edges[i].second]].push_back(ids[edges[i].first]);
+
+    void build() {
+        // 1. Find all bridges
+        for (int i = 0; i < n; i++) {
+            if (tin[i] == -1) dfs_bridges(i);
+        }
+
+        // 2. Identify 2-edge-connected components
+        for (int i = 0; i < n; i++) {
+            if (comp[i] == -1) {
+                dfs_comps(i);
+                num_comps++;
+            }
+        }
+        // 3. Build the bridge tree
+        tree.resize(num_comps);
+        for (int i = 0; i < edges.size(); i++) {
+            if (is_bridge[i]) {
+                int u = comp[edges[i].first];
+                int v = comp[edges[i].second];
+                tree[u].push_back(v);
+                tree[v].push_back(u);
+            }
         }
     }
-}
+};
