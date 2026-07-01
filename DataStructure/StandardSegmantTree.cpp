@@ -5,7 +5,7 @@ struct Node {
 };
 
 struct SegTree {
-    vector<Node> seg_data;
+    vector <Node> seg_data;
     int seg_sz;
 
     SegTree(int n) {
@@ -41,9 +41,9 @@ struct SegTree {
     }
 
     Node query(int l, int r, int ni, int li, int ri) {
-        if (l >= li && r <= ri)
+        if (li >= l && ri <= r)
             return seg_data[ni];
-        if (l >= ri || r <= li)
+        if (li >= r || ri <= l)
             return Node();
         int mid = (li + ri) >> 1;
         Node lef = query(l, r, 2 * ni + 1, li, mid);

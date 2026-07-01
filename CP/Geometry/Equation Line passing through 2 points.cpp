@@ -23,53 +23,58 @@ T cross(pt v, pt w) {
 }
 
 struct line {
-    pt v;
-    T c;
+    pt v; // Direction vector of the line
+    T c;  // Cross-product constant: cross(v, P) = c for any point P on the line
 
-    // From direction vector v and offset c
-    line(pt v, T c) : v(v), c(c) {
-    }
+    // 1. Construct from raw direction vector v and offset c
+    line(pt v, T c) : v(v), c(c) {}
 
-    // TODO
-    // From equation ax + by - c = 0
-    line(T a, T b, T c) : v({b, -a}), c(-c) {
-    }
+    // 2. Construct from standard equation: ax + by - c = 0
+    // (Note: Fixed the c(-c) bug. For ax + by = c, the struct's 'c' is just 'c')
+    line(T a, T b, T c) : v({b, -a}), c(c) {}
 
-    // From points P and Q
-    line(pt p, pt q) : v(q - p), c(cross(v, p)) {
-    }
+    // 3. Construct from two points P and Q
+    // Direction is Q - P, offset is calculated using cross product of v and P
+    line(pt p, pt q) : v(q - p), c(cross(v, p)) {}
 
+    // 4. Determines which side of the line point P is on
+    // Returns > 0 for Left, < 0 for Right, 0 if perfectly collinear
     T side(pt p) {
         return cross(v, p) - c;
     }
 
+    // 5. Shortest absolute distance from point P to the infinite line
     T dist(pt p) {
         return abs(side(p)) / abs(v);
     }
 
+    // 6. Returns a new line perpendicular to this one, passing through point P
     line perpThrough(pt p) {
         return {p, p + perp(v)};
     }
 
-    //  Sorting along a line
+    // 7. Used for sorting points. Compares the projection of P and Q onto the line.
+    // Returns true if P comes before Q when traveling along the line's direction v.
     bool cmpProj(pt p, pt q) {
         return dot(v, p) < dot(v, q);
     }
 
-    //  translate a line l by vector t
+    // 8. Translates the entire line by a 2D shift vector 't'
     line translate(pt t) {
         return {v, c + cross(v, t)};
     }
 
-    // s shifting line l to the left by a certain distance
+    // 9. Shifts the line parallel to itself to the left by a scalar 'dist'
     line shiftLeft(T dist) {
         return {v, c + dist * abs(v)};
     }
 
+    // 10. Orthogonal projection: "Drops" point P perfectly onto the line
     pt proj(pt p) {
         return p - perp(v) * side(p) / sq(v);
     }
 
+    // 11. Reflection: Treats the line as a mirror and reflects point P across it
     pt refl(pt p) {
         return p - perp(v) * (T) 2.0 * side(p) / sq(v);
     }

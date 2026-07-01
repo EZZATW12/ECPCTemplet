@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 typedef long double T;
@@ -38,9 +39,7 @@ pair<pt, T> mec(vector<pt> &p) {
     if (p.empty()) {
         return make_pair(pt(0, 0), 0.0L);
     }
-
     shuffle(p.begin(), p.end(), mt19937(time(0)));
-
     pt center = p[0];
     T r = 0, EPS = 1e-8 + 1;
     for (int i = 0; i < p.size(); i++) {

@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 typedef long double T;
@@ -64,16 +65,20 @@ int main() {
         p[i] = pt(a, b);
     }
 
-    T px, py;
-    cin >> px >> py;
+    int m;
+    cin >> m;
+    while (m--) {
+        T px, py;
+        cin >> px >> py;
 
-    bool ok = inPolygon(p, {px, py}, true), ok2 = inPolygon(p, {px, py}, false);
-    if (ok && ok2) {
-        cout << "INSIDE\n";
-    } else if (!ok && !ok2) {
-        cout << "OUTSIDE\n";
-    } else {
-        cout << "BOUNDARY\n";
+        bool ok = inPolygon(p, {px, py}, false), ok2 = inPolygon(p, {px, py}, false);
+        if (ok && ok2) {
+            cout << "in\n";
+        } else if (!ok && !ok2) {
+            cout << "out\n";
+        } else {
+            cout << "on\n";
+        }
     }
 
     return 0;

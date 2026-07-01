@@ -8,6 +8,7 @@
 // sort will leave them in arbitrary relative order (sq)
 
 #include <bits/stdc++.h>
+
 using namespace std;
 
 typedef long long T;
@@ -19,43 +20,55 @@ T sq(pt p) {
     return p.x * p.x + p.y * p.y;
 }
 
+// 2D Cross Product. Positive if w is counter-clockwise to v around origin
 T cross(pt v, pt w, pt origin = {0, 0}) {
     return (v.x - origin.x) * (w.y - origin.y) - (v.y - origin.y) * (w.x - origin.x);
 }
 
-// true if in blue half
-bool half(pt p, pt origin = {0, 0}) {
+// Replaces the old 'half' function. Safely handles the origin and matches atan2 exactly.
+int get_group(pt p, pt origin = {0, 0}) {
     T dx = p.x - origin.x, dy = p.y - origin.y;
-    assert(dx != 0 || dy != 0); // (0, 0) has no angle
-    // TODO
-    return dy > 0 || (dy == 0 && dx < 0); // or dx > 0
+    if (dy < 0) return 0;                  // Bottom half
+    if (dy == 0 && dx >= 0) return 1;      // Positive X-axis & Origin itself
+    if (dy > 0) return 2;                  // Top half
+    if (dy == 0 && dx < 0) return 3;       // Negative X-axis
+    return -1;
 }
 
-// around origin
+// Sort radially around the absolute origin (0, 0)
 void polarSort(vector<pt> &v) {
     sort(v.begin(), v.end(), [](const pt &v, const pt &w) {
-        // TODO
-        if (half(v) != half(w)) {
-            // or half(v) > half(w) depending on which half first
-            return half(v) < half(w);
+        int g1 = get_group(v);
+        int g2 = get_group(w);
+
+        if (g1 != g2) {
+            return g1 < g2;
         }
-        if (cross(v, w) != 0) {
-            return cross(v, w) > 0;
+
+        T c = cross(v, w);
+        if (c != 0) {
+            return c > 0;
         }
+
         return sq(v) < sq(w);
     });
 }
 
+// Sort radially around a specific point 'o'
 void polarSortAround(pt o, vector<pt> &v) {
     sort(v.begin(), v.end(), [o](const pt &v, const pt &w) {
-        // TODO
-        if (half(v, o) != half(w, o)) {
-            // or half(v) > half(w) depending on which half first
-            return half(v, o) < half(w, o);
+        int g1 = get_group(v, o);
+        int g2 = get_group(w, o);
+
+        if (g1 != g2) {
+            return g1 < g2;
         }
-        if (cross(v, w, o) != 0) {
-            return cross(v, w, o) > 0;
+        T c = cross(v, w, o);
+        if (c != 0) {
+            return c > 0;
         }
+
+        // sq(v - o) works beautifully here because std::complex overloads the '-' operator
         return sq(v - o) < sq(w - o);
     });
 }

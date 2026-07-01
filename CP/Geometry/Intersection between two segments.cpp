@@ -106,6 +106,5 @@ vector<pt> segmentsIntersectPoint(pt a, pt b, pt c, pt d) {
 
     // remove duplicates
     pts.resize(unique(pts.begin(), pts.end()) - pts.begin());
-
     return pts;
 }
