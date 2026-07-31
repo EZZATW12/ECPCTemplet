@@ -10,6 +10,14 @@ typedef double T;
 typedef complex<T> pt;
 
 #define x real()
+#define y imag()#define ll long long
+#define ld long double
+#define EPS 1e-9
+#define PI acos(-1)
+typedef double T;
+typedef complex<T> pt;
+
+#define x real()
 #define y imag()
 
 // transformations
@@ -134,8 +142,10 @@ struct line {
         v = q - p;
         c = cross(v, p);
     }
+
     void normalize() {
         // 1. Reduce by GCD
+        int dx = v.x, dy = v.y;
         long long g = std::gcd(std::abs(dx), std::abs(dy));
         if (g != 0) {
             dx /= g;
@@ -151,6 +161,7 @@ struct line {
             c = -c;
         }
     }
+
     T side(pt p) {
         return cross(v, p) - c;
     }
@@ -336,6 +347,7 @@ void sort_ccw(vector<pt> &v) {
         return ang1 < ang2;
     });
 }
+
 // O(log)
 bool inConverx(vector<pt> &p, pt t) {
     if (p.size() < 3)return {};
@@ -351,8 +363,9 @@ bool inConverx(vector<pt> &p, pt t) {
     }
     return inPolygon({p[0], p[ans], p[ans + 1]}, t);
 }
+
 // Returns 1 (IN), 0 (ON), -1 (OUT)
-int pointInConvex(const vector<pt>& p, pt t) {
+int pointInConvex(const vector<pt> &p, pt t) {
     int n = p.size();
     if (n < 3) return -1;
 
@@ -388,6 +401,7 @@ int pointInConvex(const vector<pt>& p, pt t) {
     if (o == 0 && onSegment(p[ans], p[ans + 1], t)) return 0; // Exactly ON the outer edge
     return -1; // OUT (it fell outside the outer edge)
 }
+
 int main() {
 
 

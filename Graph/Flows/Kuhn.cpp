@@ -45,11 +45,6 @@ struct Kuhn {
         }
         return result;
     }
-
-    // ============================================
-    //  CONSTRUCT THE MATCHING
-    // ============================================
-
     // Returns list of {left, right} pairs
     vector <pair<int, int>> getMatching() {
         vector <pair<int, int>> res;
