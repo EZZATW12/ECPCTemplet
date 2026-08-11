@@ -228,7 +228,45 @@ struct suffixAutomaton {
         }
         return t.substr(bestpos - best + 1, best);
     }
+    void getKthCalc() {
+        vis = vector<int>(sz + 1);
+        dp = vector<ll>(sz + 1);
+        calc(0);
+    }
 
+    ll calc(int u) {
+        if (vis[u])return dp[u];
+        vis[u] = true;
+        ll &ret = dp[u];
+        ret = st[u].cnt;
+        for (auto v: st[u].next) {
+            if (v == -1)continue;
+            ret += calc(v);
+        }
+        return ret;
+    }
+
+    string out(ll k) {
+        int cur = 0;
+        string ans;
+        while (k) {
+            for (int i = 0; i < M; ++i) {
+                int v = st[cur].next[i];
+                if (v == -1)continue;
+                if (dp[v] < k)k -= dp[v];
+                else {
+                    ans.push_back(char(i + offset));
+                    if (k <= st[v].cnt) {
+                        return ans;
+                    }
+                    k -= st[v].cnt;
+                    cur = v;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
     void inverseLinkPreprocess() {
         for (int v = 1; v < sz; v++) {
             st[st[v].link].inv_link.push_back(v);
@@ -246,5 +284,19 @@ struct suffixAutomaton {
             ret.push_back(st[v].firstposition);
         for (int u: st[v].inv_link)
             findAllPosition(u, ret);
+    }
+    void printAutomaton() {
+        for (int u = 0; u < sz; u++) {
+            for (int c = 0; c < M; c++) {
+                if (st[u].next[c] != -1) {
+                    cout << u << " " << st[u].next[c] << " " << char(offset + c) << "\n";
+                }
+            }
+        }
+    }
+    void printTreeEdges() {
+        for (int i = 1; i < sz; i++) {
+            cout << i << " " << st[i].link << "\n";
+        }
     }
 };
