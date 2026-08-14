@@ -1,41 +1,30 @@
 //
 // Created by Ezzat on 6/22/2025.
 //
-const int M = 2;
+using row = vector<ll>;
+using Matrix = vector<row>;
 
-int mul(const ll &a,const ll&b){
-    return (a % mod + mod) * (b % mod + mod) % mod;
-}
-
-int add(const ll &a,const ll&b){
-    return (a + b + 2 * mod)%mod;
-}
-
-typedef array<array<int,M>,M> matrix;
-
-matrix operator*(const matrix &lhs, const matrix &rhs) {
-    matrix ret{};
-    for (int i = 0; i < M; ++i)
-        for (int j = 0; j < M; ++j)
-            for (int k = 0; k < M; ++k)
-                ret[i][k] = add(ret[i][k], mul(lhs[i][j],rhs[j][k]));
-    return ret;
-}
-
-matrix Identity(int n) {
-    matrix ret={};
+Matrix mul(Matrix &a, Matrix &b) {
+    int n = a.size(), m = a[0].size(), k = b[0].size();
+    Matrix res(n, row(k));
     for (int i = 0; i < n; ++i) {
-        ret[i][i] = 1;
+        for (int j = 0; j < k; ++j) {
+            for (int l = 0; l < m; ++l) {
+                res[i][j] += (1ll * a[i][l] * b[l][j]) % mod;
+                res[i][j] %= mod;
+            }
+        }
     }
-    return ret;
+    return res;
 }
 
-matrix mat_power(matrix x, ll p) {
-    matrix res = Identity(x.size());
+Matrix power(Matrix a, ll p) {
+    int n = a.size();
+    Matrix res(n, row(n));
+    for (int i = 0; i < n; ++i)res[i][i] = 1;
     while (p) {
-        if (p & 1) res = (res * x);
-        x = (x * x);
-        p >>= 1;
+        if (p & 1) res = mul(res, a);
+        a = mul(a, a), p >>= 1;
     }
     return res;
 }

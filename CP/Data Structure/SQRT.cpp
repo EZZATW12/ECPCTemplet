@@ -44,7 +44,6 @@ struct Sqrt {
 
 int main() {
     Sqrt sq((int) ceil(sqrt(n)), arr);
-
     // l, r 1-Based
     sq.update(l - 1, r);
     cout << sq.query(l, r);

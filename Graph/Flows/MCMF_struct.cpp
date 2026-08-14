@@ -24,7 +24,7 @@ struct MCMF {
         g[u].push_back(e1);
         g[v].push_back(e2);
     }
-
+    // note the cost is int
     pair<int, int> minCostMaxFlow(int s, int t) {
         int flow = 0;
         int cost = 0;

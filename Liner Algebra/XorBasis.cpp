@@ -25,6 +25,21 @@ struct XorBasis {
         return false;
     }
 
+    int kth(int k) {
+        int ret = 0, cnt = (1 << sz);
+        for (int i = 29; ~i; --i) {
+            if (basis[i]) {
+                cnt >>= 1;
+                if (k > cnt && (ret >> i & 1 ^ 1))
+                    ret ^= basis[i];
+                if (k <= cnt && (ret >> i & 1))
+                    ret ^= basis[i];
+                if (k > cnt) k -= cnt;
+            }
+        }
+        return ret;
+    }
+
     ll getMax(ll x = 0) {
         ll ret = x;
         for (int i = LOG - 1; i >= 0; --i) {

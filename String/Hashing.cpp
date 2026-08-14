@@ -61,4 +61,13 @@ struct Hash {
                 mul(add(prefixHash[r].se, -(l ? prefixHash[l - 1].se : 0)), inv2[l])
         };
     }
+
+    // NEW FUNCTION: Merges two hashes
+    // Requires the length of the first string (lenA) to shift the powers correctly
+    static pair<int, int> merge(pair<int, int> hashA, pair<int, int> hashB, int lenA) {
+        return {
+                add(hashA.fi, mul(hashB.fi, pw1[lenA])),
+                add(hashA.se, mul(hashB.se, pw2[lenA]))
+        };
+    }
 };

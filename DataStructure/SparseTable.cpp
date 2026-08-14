@@ -11,7 +11,7 @@ struct sparseTable {
     explicit sparseTable(vector <T> &a, FUN calc) : calc(calc) {
         int n = (int) a.size(), max_log = 32 - __builtin_clz(n);
         lg.assign(n + 6, {});
-        sp = vector < vector < long long >> (n, vector<long long>(max_log));
+        sp = vector < vector < int >> (n, vector<int>(max_log));
         lg[0] = -1;
         for (int i = 0; i < n + 5; ++i) lg[i + 1] = lg[i] + !(i & (i + 1));
         for (int i = 0; i < n; i++) sp[i][0] = a[i];

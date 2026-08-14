@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 const int N = 1e5 + 9;
 
 #define ll long long
+
 struct PersistentSegTree {
     struct Node {
         int l = 0;
@@ -37,7 +39,7 @@ struct PersistentSegTree {
     }
 
     // Recursive Build
-    int _build(int l, int r, const vector<int>& a) {
+    int _build(int l, int r, const vector<int> &a) {
         int curr = newNode();
         if (l == r) {
             tree[curr].sum = a[l];
@@ -80,7 +82,7 @@ struct PersistentSegTree {
     // --- Public API ---
 
     // Build the initial version (Version 0) from an array
-    void build_initial(const vector<int>& a) {
+    void build_initial(const vector<int> &a) {
         roots[0] = _build(1, n, a);
     }
 
