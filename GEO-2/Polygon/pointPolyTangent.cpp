@@ -1,3 +1,27 @@
+﻿#include <bits/stdc++.h>
+using namespace std;
+
+typedef long double T;
+typedef complex<T> pt;
+
+const T EPS = 1e-9;
+const T PI = acos(-1.0);
+
+#define X real()
+#define Y imag()
+
+int sgn(T val) {
+    return (val > EPS) - (val < -EPS);
+}
+
+T dot(pt v, pt w) { return (conj(v) * w).real(); }
+T cross(pt v, pt w) { return (conj(v) * w).imag(); }
+T sq(pt p) { return dot(p, p); }
+
+T orient(pt a, pt b, pt c) { return cross(b - a, c - a); }
+pt prep(pt p) { return {-p.Y, p.X}; }
+pt perp(pt p) { return {-p.Y, p.X}; }
+
 /**
  * Time Complexity: O(log N)
  * Floating Point: No (integer-safe; relies on orient and sgn)
@@ -29,3 +53,4 @@ pair<pt, int> pointPolyTangent(const vector<pt> &p, pt Q, int dir, int l, int r)
     for (int i = l + 1; i <= r; i++) ret = sgn(orient(Q, ret.first, p[i])) != dir ? make_pair(p[i], i) : ret;
     return ret;
 }
+

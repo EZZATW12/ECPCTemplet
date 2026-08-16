@@ -1383,9 +1383,161 @@ double get_maximum_polygon_area_for_given_lengths(vector<double> v) {
   }
 }
 
+// --- TRIANGLE CENTERS & RADII ---
+PT incenter(PT a, PT b, PT c) {
+    double la = dist(b, c), lb = dist(c, a), lc = dist(a, b);
+    return (a * la + b * lb + c * lc) / (la + lb + lc);
+}
+
+double incircle_radius(PT a, PT b, PT c) {
+    double la = dist(b, c), lb = dist(c, a), lc = dist(a, b);
+    double s = (la + lb + lc) / 2.0;
+    double area = area_of_triangle(a, b, c);
+    return area / s;
+}
+
+PT circumcenter(PT a, PT b, PT c) {
+    PT b_mid = (a + b) * 0.5;
+    PT c_mid = (a + c) * 0.5;
+    PT ans;
+    line_line_intersection(b_mid, b_mid + rotatecw90(a - b_mid), c_mid, c_mid + rotatecw90(a - c_mid), ans);
+    return ans;
+}
+
+double circumcircle_radius(PT a, PT b, PT c) {
+    double la = dist(b, c), lb = dist(c, a), lc = dist(a, b);
+    double area = area_of_triangle(a, b, c);
+    return (la * lb * lc) / (4.0 * area);
+}
+
+PT orthocenter(PT a, PT b, PT c) {
+    return a + b + c - 2.0 * circumcenter(a, b, c);
+}
+
+PT excenter_a(PT a, PT b, PT c) {
+    double la = dist(b, c), lb = dist(c, a), lc = dist(a, b);
+    return (a * (-la) + b * lb + c * lc) / (-la + lb + lc);
+}
+
+// --- CLOSEST PAIR OF POINTS O(N log N) ---
+pair<PT, PT> closest_pair(vector<PT> pts, double &min_dist) {
+    int n = pts.size();
+    assert(n >= 2);
+    sort(pts.begin(), pts.end());
+    double d2 = 1e30;
+    pair<PT, PT> best_pair;
+    auto update = [&](PT p1, PT p2) {
+        double dist_sq = dist2(p1, p2);
+        if (dist_sq < d2) {
+            d2 = dist_sq;
+            best_pair = {p1, p2};
+        }
+    };
+    auto cmpy = [](PT a, PT b) { return a.y < b.y; };
+    function<void(int, int)> solve = [&](int l, int r) {
+        if (r - l <= 3) {
+            for (int i = l; i <= r; ++i) {
+                for (int j = i + 1; j <= r; ++j) update(pts[i], pts[j]);
+            }
+            sort(pts.begin() + l, pts.begin() + r + 1, cmpy);
+            return;
+        }
+        int mid = (l + r) / 2;
+        double midx = pts[mid].x;
+        solve(l, mid);
+        solve(mid + 1, r);
+        vector<PT> temp(r - l + 1);
+        merge(pts.begin() + l, pts.begin() + mid + 1, pts.begin() + mid + 1, pts.begin() + r + 1, temp.begin(), cmpy);
+        copy(temp.begin(), temp.end(), pts.begin() + l);
+        vector<PT> strip;
+        for (int i = l; i <= r; ++i) {
+            if (SQ(pts[i].x - midx) < d2) {
+                for (int j = (int)strip.size() - 1; j >= 0 && SQ(pts[i].y - strip[j].y) < d2; --j) {
+                    update(pts[i], strip[j]);
+                }
+                strip.push_back(pts[i]);
+            }
+        }
+    };
+    solve(0, n - 1);
+    min_dist = sqrt(d2);
+    return best_pair;
+}
+
+// --- CIRCLE INVERSION & RADICAL AXIS ---
+double power_of_point(PT center, double r, PT p) {
+    return dist2(p, center) - r * r;
+}
+
+PT invert_point(PT c, double r, PT p) {
+    assert(sign(dist(p, c)) != 0);
+    return c + (p - c) * (r * r / dist2(p, c));
+}
+
+line radical_axis(PT c1, double r1, PT c2, double r2) {
+    assert(c1 != c2);
+    double d2 = dist2(c1, c2);
+    double d = sqrt(d2);
+    double x = (d2 + r1 * r1 - r2 * r2) / (2.0 * d);
+    PT foot = c1 + (c2 - c1) / d * x;
+    return line(foot, foot + (c2 - c1).perp());
+}
+
+// --- PICK'S THEOREM ---
+long long boundary_lattice_points(const vector<PT> &p) {
+    int n = p.size();
+    long long B = 0;
+    for (int i = 0; i < n; i++) {
+        long long x1 = llround(p[i].x), y1 = llround(p[i].y);
+        long long x2 = llround(p[(i + 1) % n].x), y2 = llround(p[(i + 1) % n].y);
+        B += std::gcd(std::abs(x1 - x2), std::abs(y1 - y2));
+    }
+    return B;
+}
+
+long long interior_lattice_points(const vector<PT> &p) {
+    int n = p.size();
+    long long twice_area = 0;
+    for (int i = 0; i < n; i++) {
+        long long x1 = llround(p[i].x), y1 = llround(p[i].y);
+        long long x2 = llround(p[(i + 1) % n].x), y2 = llround(p[(i + 1) % n].y);
+        twice_area += (x1 * y2 - x2 * y1);
+    }
+    twice_area = std::abs(twice_area);
+    long long B = boundary_lattice_points(p);
+    return (twice_area - B + 2) / 2;
+}
+
+// --- QUADRILATERAL FORMULAS ---
+double cyclic_quadrilateral_area(double a, double b, double c, double d) {
+    double s = (a + b + c + d) / 2.0;
+    return sqrt((s - a) * (s - b) * (s - c) * (s - d));
+}
+
+double general_quadrilateral_area(double a, double b, double c, double d, double angle1_rad, double angle2_rad) {
+    double s = (a + b + c + d) / 2.0;
+    double cos_half = cos((angle1_rad + angle2_rad) / 2.0);
+    return sqrt((s - a) * (s - b) * (s - c) * (s - d) - a * b * c * d * cos_half * cos_half);
+}
+
+// --- SPHERICAL GEOMETRY ---
+double haversine_distance(double lat1_deg, double lon1_deg, double lat2_deg, double lon2_deg, double R = 6371.0) {
+    double lat1 = deg_to_rad(lat1_deg), lon1 = deg_to_rad(lon1_deg);
+    double lat2 = deg_to_rad(lat2_deg), lon2 = deg_to_rad(lon2_deg);
+    double dlat = lat2 - lat1, dlon = lon2 - lon1;
+    double a = SQ(sin(dlat / 2.0)) + cos(lat1) * cos(lat2) * SQ(sin(dlon / 2.0));
+    double c = 2.0 * atan2(sqrt(a), sqrt(1.0 - a));
+    return R * c;
+}
+
+double spherical_triangle_area(double A_rad, double B_rad, double C_rad, double R = 1.0) {
+    return R * R * (A_rad + B_rad + C_rad - PI);
+}
+
 int32_t main() {
   	ios_base::sync_with_stdio(0);
   	cin.tie(0);
   	
  	return 0;	
 }
+

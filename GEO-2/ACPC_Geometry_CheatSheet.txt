@@ -1,0 +1,163 @@
+================================================================================
+ACPC / ICPC 2D GEOMETRY MASTER REFERENCE & FORMULA SHEET (.TXT)
+================================================================================
+
+1. FUNDAMENTALS & VECTOR MATH
+--------------------------------------------------------------------------------
+- Point Representation:
+    typedef complex<long double> pt;
+    #define X real()
+    #define Y imag()
+    or: struct PT { double x, y; };
+
+- Dot Product:
+    v . w = v.x * w.x + v.y * w.y = |v| * |w| * cos(theta)
+    v . w > 0 => acute angle (< 90 deg)
+    v . w = 0 => perpendicular (90 deg)
+    v . w < 0 => obtuse angle (> 90 deg)
+
+- Cross Product (2D):
+    v x w = v.x * w.y - v.y * w.x = |v| * |w| * sin(theta)
+    v x w > 0 => w is to the LEFT (CCW turn)
+    v x w = 0 => collinear
+    v x w < 0 => w is to the RIGHT (CW turn)
+
+- Vector Projection of p onto v:
+    proj_v(p) = ((p . v) / |v|^2) * v
+
+- Vector Rotation by Angle theta (CCW):
+    x' = x * cos(theta) - y * sin(theta)
+    y' = x * sin(theta) + y * cos(theta)
+
+- 90 Degree Perpendicular Vectors:
+    CCW 90 deg: perp(x, y) = (-y, x)
+    CW  90 deg: perp_cw(x, y) = (y, -x)
+
+
+2. LINE & LINE SEGMENT FORMULAS
+--------------------------------------------------------------------------------
+- Line Equations:
+    General Form: Ax + By + C = 0
+    Vector Form:  P = A + t * v
+
+- Distance from Point P to Line AB:
+    dist = |AB x AP| / |AB|
+
+- Distance from Point P to Segment AB:
+    If (AB . AP) < 0 => dist = |P - A|
+    If (BA . BP) < 0 => dist = |P - B|
+    Otherwise        => dist = |AB x AP| / |AB|
+
+- Line-Line Intersection (Lines A + t*u and B + s*v):
+    t = ((B - A) x v) / (u x v)
+    Intersection Point: P = A + t * u  (Parallel if u x v == 0)
+
+
+3. TRIANGLE CENTERS & FORMULAS
+--------------------------------------------------------------------------------
+Let A, B, C be vertices with opposite side lengths a, b, c and semi-perimeter s = (a + b + c) / 2.
+
+- Area (K):
+    Shoelace / Cross: K = 0.5 * |xA*(yB - yC) + xB*(yC - yA) + xC*(yA - yB)|
+    Heron's Formula:  K = sqrt(s * (s - a) * (s - b) * (s - c))
+    Trigonometric:    K = 0.5 * a * b * sin(C) = 0.5 * a * c * sin(B) = 0.5 * b * c * sin(A)
+
+- Incircle (Center I & Radius r):
+    I = (a*A + b*B + c*C) / (a + b + c)
+    r = K / s = sqrt((s - a)*(s - b)*(s - c) / s)
+
+- Circumcircle (Center O & Radius R):
+    R = (a * b * c) / (4 * K)
+    O is the intersection of perpendicular bisectors of AB, BC, CA.
+
+- Orthocenter (H):
+    Intersection of altitudes.
+    H = A + B + C - 2*O
+
+- Centroid (G):
+    Intersection of medians.
+    G = (A + B + C) / 3
+
+- Euler Line:
+    Centroid G, Circumcenter O, Orthocenter H, and Nine-point center N are collinear.
+    H - G = 2 * (G - O)
+    N = (O + H) / 2
+
+- Excircles (Radii r_a, r_b, r_c and Centers I_a, I_b, I_c):
+    I_a = (-a*A + b*B + c*C) / (-a + b + c)
+    r_a = K / (s - a)
+
+- Euler's Distance Formula (Distance between Circumcenter O and Incenter I):
+    d^2 = R * (R - 2*r)
+
+
+4. POLYGON FORMULAS & THEOREMS
+--------------------------------------------------------------------------------
+- Shoelace Formula (Area of Simple Polygon):
+    Area = 0.5 * |sum_{i=0}^{n-1} (x_i * y_{i+1} - x_{i+1} * y_i)|
+
+- Polygon Centroid:
+    Cx = (1 / (6 * Area)) * sum((x_i + x_{i+1}) * (x_i * y_{i+1} - x_{i+1} * y_i))
+    Cy = (1 / (6 * Area)) * sum((y_i + y_{i+1}) * (x_i * y_{i+1} - x_{i+1} * y_i))
+
+- Pick's Theorem (Integer Lattice Polygon):
+    Area = I + B/2 - 1  ==>  I = Area - B/2 + 1
+    I: Number of strictly interior lattice points
+    B: Number of boundary lattice points = sum(gcd(|x_{i+1} - x_i|, |y_{i+1} - y_i|))
+
+- Brahmagupta's Formula (Cyclic Quadrilateral):
+    Area = sqrt((s - a)*(s - b)*(s - c)*(s - d)),  s = (a + b + c + d) / 2
+
+- Bretschneider's Formula (General Quadrilateral):
+    Area = sqrt((s - a)*(s - b)*(s - c)*(s - d) - a*b*c*d * cos^2((alpha + gamma)/2))
+
+
+5. CIRCLE THEOREMS & INVERSION
+--------------------------------------------------------------------------------
+- Circle-Line Intersection:
+    Distance d from center C to line L.
+    Offset along line: h = sqrt(R^2 - d^2).
+
+- Circle-Circle Intersection:
+    Distance d = |C1 - C2|.
+    Intersects if |R1 - R2| <= d <= R1 + R2.
+    Distance from C1 to radical chord: a = (R1^2 - R2^2 + d^2) / (2*d).
+
+- Power of a Point:
+    Power(P) = d^2 - R^2  where d = |P - C|.
+
+- Radical Axis:
+    Line of equal power for two non-concentric circles.
+    Foot on C1-C2 line: x = (d^2 + R1^2 - R2^2) / (2*d).
+
+- Circle Inversion:
+    Transform point P wrt circle (C, R):
+    P' = C + (R^2 / |P - C|^2) * (P - C)
+
+
+6. SPHERICAL GEOMETRY & GEOGRAPHIC COORDINATES
+--------------------------------------------------------------------------------
+- Latitude (phi) / Longitude (lambda) to 3D Unit Sphere:
+    x = cos(phi) * cos(lambda)
+    y = cos(phi) * sin(lambda)
+    z = sin(phi)
+
+- Great Circle Distance (Haversine Formula):
+    dphi = phi2 - phi1,  dlambda = lambda2 - lambda1
+    a = sin^2(dphi / 2) + cos(phi1) * cos(phi2) * sin^2(dlambda / 2)
+    d = 2 * R * atan2(sqrt(a), sqrt(1 - a))
+
+- Girard's Theorem (Spherical Triangle Area):
+    Area = R^2 * (A + B + C - pi)   (angles A, B, C in radians)
+
+
+7. PRECISION & IMPLEMENTATION BEST PRACTICES FOR ACPC
+--------------------------------------------------------------------------------
+1. Prefer 'long double' over 'double' to avoid 64-bit precision issues.
+2. EPS = 1e-9:
+   - Equal: abs(a - b) < EPS
+   - sgn:   int sgn(val) { return (val > EPS) - (val < -EPS); }
+3. Integer Arithmetic: Use 'long long' for cross/dot products when input coordinates are integers to avoid float loss.
+4. Collinearity / Degeneracy Checks: Always test for zero length vectors (|v| == 0) before dividing by norm/distance.
+5. Angle Range: atan2(y, x) returns values in [-pi, pi].
+================================================================================

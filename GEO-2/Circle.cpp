@@ -1,9 +1,40 @@
+﻿#include <bits/stdc++.h>
+using namespace std;
 
+typedef long double T;
+typedef complex<T> pt;
+
+const T EPS = 1e-9;
+const T PI = acos(-1.0);
+
+#define X real()
+#define Y imag()
+
+int sgn(T val) {
+    return (val > EPS) - (val < -EPS);
+}
+
+T dot(pt v, pt w) { return (conj(v) * w).real(); }
+T cross(pt v, pt w) { return (conj(v) * w).imag(); }
+T sq(pt p) { return dot(p, p); }
+
+T orient(pt a, pt b, pt c) { return cross(b - a, c - a); }
+pt prep(pt p) { return {-p.Y, p.X}; }
+pt perp(pt p) { return {-p.Y, p.X}; }
+
+/**
+ * Orthogonal projection of point p onto line through points a and b.
+ */
 pt proj(pt a, pt b, pt p) {
     pt v = b - a;
     return a + v * dot(v, p - a) / sq(v);
 }
 
+/**
+ * Intersection of line through points a and b with circle centered at c with radius r.
+ * Outputs intersection points in p1 and p2.
+ * Returns: 0 if no intersection, 1 if line is tangent, 2 if line intersects at 2 points.
+ */
 int circleLineInter(pt c, T r, pt a, pt b, pt &p1, pt &p2) {
     pt p = proj(a, b, c); 
     T d = abs(p - c); 
@@ -19,6 +50,10 @@ int circleLineInter(pt c, T r, pt a, pt b, pt &p1, pt &p2) {
     return 2;
 }
 
+/**
+ * Intersection of two circles (c1, r1) and (c2, r2). Outputs intersection points in p1 and p2.
+ * Returns: 0 if disjoint/nested, 1 if tangent, 2 if 2 intersection points, -1 if circles are identical.
+ */
 int circleCircleInter(pt c1, T r1, pt c2, T r2, pt &p1, pt &p2) {
     T d = abs(c2 - c1);
 
