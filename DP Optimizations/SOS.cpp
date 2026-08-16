@@ -1,4 +1,4 @@
-const int B = 22;
+const int B = 21;
 const int M = 1 << B;
 
 // subset contribute to its superset
@@ -32,4 +32,16 @@ void backwardRev(vector<int> &dp) {
             if (m & (1 << i))
                 dp[m ^ (1 << i)] -= dp[m];
 }
+
+
+//////////////////////////////
+
+for (int m=0; m<(1<<n); ++m)
+        for (int s=m; s; s=(s-1)&m)
+             // sub mask
+for (int m=0; m<(1<<n); ++m)
+        for (int s=m; s < N; s=(s+1)|m)
+                // sup mask
+
+
 

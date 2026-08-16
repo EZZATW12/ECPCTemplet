@@ -1,30 +1,83 @@
-struct Line {
-    mutable ll k, m, p;
-    bool operator<(const Line& o) const { return k < o.k; }
-    bool operator<(ll x) const { return p < x; }
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using ll = long long;
+const ll INF = LLONG_MAX;
+
+struct line {
+    mutable ll m, b, p;
+
+    ll eval(ll x) const {
+        return m * x + b;
+    }
+
+    bool operator<(const line &other) const {
+        return m < other.m;
+    }
+
+    bool operator<(const ll x) const {
+        return p < x;
+    }
 };
 
-struct HullDynamic : multiset<Line, less<>> {
-    // (for doubles, use inf = 1/.0, div(a,b) = a/b)
-    const ll inf = 2e18;
-    ll div(ll a, ll b) { // floored division
-        return a / b - ((a ^ b) < 0 && a % b); }
-    bool isect(iterator x, iterator y) {
-        if (y == end()) { x->p = inf; return false; }
-        if (x->k == y->k) x->p = x->m > y->m ? inf : -inf;
-        else x->p = div(y->m - x->m, x->k - y->k);
-        return x->p >= y->p;
+struct DynamicCHT : multiset<line, less<> > {
+    ll div(ll num, ll den) {
+        return num / den - ((num ^ den) < 0 && num % den);
     }
-    void add(ll k, ll m) {
-        auto z = insert({k, m, 0}), y = z++, x = y;
-        while (isect(y, z)) z = erase(z);
-        if (x != begin() && isect(--x, y)) isect(x, y = erase(y));
-        while ((y = x) != begin() && (--x)->p >= y->p)
-            isect(x, erase(y));
+
+    // return true if l2 is useless
+    bool inter(iterator l1, iterator l2) {
+        if (l2 == end()) {
+            l1->p = INF;
+            return false;
+        }
+        if (l1->m == l2->m) {
+            l1->p = (l1->b >= l2->b ? INF : -INF);
+        } else {
+            l1->p = div(l2->b - l1->b, l1->m - l2->m);
+        }
+        return l1->p >= l2->p;
     }
-    ll query(ll x) {
+
+    void add_max(ll m, ll b) {
+        iterator cur = insert({m, b, 0}), nxt = next(cur);
+        while (inter(cur, nxt)) {
+            nxt = erase(nxt);
+        }
+
+        if (cur != begin()) {
+            auto prv = prev(cur);
+            if (inter(prv, cur)) {
+                nxt = erase(cur);
+                inter(prv, nxt);
+                return;
+            }
+        }
+
+        while (cur != begin()) {
+            auto prv = prev(cur);
+            if (prv == begin()) break;
+            auto prv2 = prev(prv);
+            if (prv2->p >= prv->p) {
+                cur = erase(prv);
+                inter(prv2, cur);
+            } else {
+                break;
+            }
+        }
+    }
+
+    ll query_max(ll x) {
         assert(!empty());
-        auto l = *lower_bound(x);
-        return l.k * x + l.m;
+        return (*lower_bound(x)).eval(x);
+    }
+
+    void add_min(ll m, ll b) {
+        add_max(-m, -b);
+    }
+
+    ll query_min(ll x) {
+        return -query_max(x);
     }
 };
